@@ -1,0 +1,29 @@
+---
+// index.astro
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Menu from '../components/Menu.astro';
+import ReservationsTakeout from '../components/ReservationsTakeout.astro';
+import LocationMap from '../components/LocationMap.astro';
+---
+
+<Layout
+  title="Pizzeria Rainbow Civitavecchia | Pizzeria Storica, Primi Piatti e Carne"
+  description="Pizzeria Rainbow a Civitavecchia da oltre 20 anni. Forno a legna tradizionale, pizze croccanti, primi romani e carne alla brace. Prenota o ordina da asporto al 0766 370162."
+>
+  <!-- Hero Section -->
+  <Hero />
+
+  <!-- About / La Nostra Storia Section -->
+  <About />
+
+  <!-- Menu Section with Dishes and Prices -->
+  <Menu />
+
+  <!-- Reservations & Takeout Box with Hours -->
+  <ReservationsTakeout />
+
+  <!-- Location & Google Maps Section -->
+  <LocationMap />
+</Layout>

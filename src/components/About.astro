@@ -1,0 +1,105 @@
+---
+// About.astro
+---
+
+<section id="chi-siamo" class="py-16 sm:py-24 bg-brand-ivory relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      
+      <!-- Left Column: Visual Storytelling -->
+      <div class="lg:col-span-6 relative">
+        <div class="relative mx-auto">
+          
+          <!-- Decorative Background Frame -->
+          <div class="absolute -top-4 -left-4 w-full h-full border-2 border-brand-green/20 rounded-2xl -z-10 hidden sm:block"></div>
+          
+          <!-- Image -->
+          <div class="rounded-2xl overflow-hidden shadow-warm border border-brand-green/10">
+            <img 
+              src="/images/about-chef.jpg" 
+              alt="Mastro pizzaiolo che impasta con passione alla Pizzeria Rainbow a Civitavecchia" 
+              class="w-full h-[380px] sm:h-[460px] object-cover object-center transform hover:scale-102 transition-transform duration-500"
+              loading="lazy"
+            />
+          </div>
+
+          <!-- Floating Experience Pill -->
+          <div class="absolute -bottom-6 -right-4 sm:right-6 bg-brand-green text-brand-ivory p-4 sm:p-5 rounded-2xl shadow-xl border-2 border-brand-yellow/40 max-w-xs flex items-center gap-4">
+            <div class="text-3xl sm:text-4xl font-extrabold text-brand-yellow flex-shrink-0">
+              20+
+            </div>
+            <div>
+              <p class="font-bold text-sm sm:text-base leading-tight">Anni di Passione</p>
+              <p class="text-xs font-normal text-brand-ivory/80">Punto di riferimento per Civitavecchia dal 2003</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right Column: Text & Values -->
+      <div class="lg:col-span-6 flex flex-col justify-center space-y-6">
+        
+        <div class="space-y-2">
+          <span class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-brand-terracotta">
+            La Nostra Storia & Filosofia
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-4xl font-extrabold text-brand-green leading-tight">
+            Una passione autentica, <br />
+            accogliente come a casa tua.
+          </h2>
+        </div>
+
+        <p class="text-brand-charcoal/85 text-base sm:text-lg leading-relaxed">
+          Fondata oltre vent'anni fa nel cuore di <strong>Civitavecchia</strong>, la nostra pizzeria è nata con un obiettivo semplice e sincero: offrire a famiglie, coppie e compagnie di amici un posto informale e caldo dove gustare piatti genuini preparati con amore.
+        </p>
+
+        <p class="text-brand-charcoal/85 text-base leading-relaxed">
+          Crediamo nei tempi giusti: i nostri impasti maturano lentamente per almeno 48 ore per garantirti una pizza leggera, friabile e altamente digeribile. Ma non ci fermiamo qui: per chi ama la tavola a 360°, la nostra cucina propone ogni sera anche i grandi primi della tradizione romana e succulenti tagli di carne cotti alla brace.
+        </p>
+
+        <!-- 3 Feature Highlights -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-3">
+          
+          <div class="bg-white/80 p-4 rounded-xl border border-brand-green/10 shadow-sm flex flex-col">
+            <div class="w-9 h-9 rounded-lg bg-brand-green/10 text-brand-green flex items-center justify-center font-bold mb-2">
+              🍕
+            </div>
+            <h3 class="font-bold text-brand-green text-sm">Pizze Fragranti</h3>
+            <p class="text-xs text-brand-charcoal/70 mt-1">Impasti ad alta idratazione e ingredienti sempre freschi.</p>
+          </div>
+
+          <div class="bg-white/80 p-4 rounded-xl border border-brand-green/10 shadow-sm flex flex-col">
+            <div class="w-9 h-9 rounded-lg bg-brand-terracotta/10 text-brand-terracotta flex items-center justify-center font-bold mb-2">
+              🍝
+            </div>
+            <h3 class="font-bold text-brand-green text-sm">Primi & Carne</h3>
+            <p class="text-xs text-brand-charcoal/70 mt-1">Carbonara, cacio e pepe e tagliate alla brace ardente.</p>
+          </div>
+
+          <div class="bg-white/80 p-4 rounded-xl border border-brand-green/10 shadow-sm flex flex-col">
+            <div class="w-9 h-9 rounded-lg bg-brand-yellow/20 text-brand-charcoal flex items-center justify-center font-bold mb-2">
+              ❤️
+            </div>
+            <h3 class="font-bold text-brand-green text-sm">Ambiente Caldo</h3>
+            <p class="text-xs text-brand-charcoal/70 mt-1">Perfetto per cene con amici, compleanni e famiglie.</p>
+          </div>
+
+        </div>
+
+        <!-- Quick Call to Action in section -->
+        <div class="pt-2 flex items-center gap-4">
+          <a
+            href="tel:0766370162"
+            class="inline-flex items-center gap-2 text-brand-terracotta font-bold hover:text-[#b04630] group transition-colors"
+          >
+            <span>Vieni a trovarci o prenota al 0766 370162</span>
+            <span class="group-hover:translate-x-1 transition-transform">→</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>

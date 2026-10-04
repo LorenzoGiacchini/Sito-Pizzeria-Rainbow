@@ -1,0 +1,144 @@
+---
+// ReservationsTakeout.astro
+---
+
+<section id="prenotazioni" class="py-16 sm:py-24 bg-brand-green text-brand-ivory relative overflow-hidden">
+  <!-- Subtle decorative background rings -->
+  <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full border border-brand-yellow/15 pointer-events-none"></div>
+  <div class="absolute -bottom-24 -left-24 w-96 h-96 rounded-full border border-brand-yellow/15 pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="bg-gradient-to-br from-[#233a2e] to-[#1a2d24] rounded-3xl p-8 sm:p-12 lg:p-16 border-2 border-brand-yellow/30 shadow-2xl">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left: Booking & Takeout Info -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-yellow/20 text-brand-yellow text-xs sm:text-sm font-semibold tracking-wide">
+            <span>Prenotazioni Tavoli & Pizze d'Asporto</span>
+          </div>
+
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
+            Assicurati il Tuo Tavolo o <br />
+            Ritira la Tua Pizza Calda.
+          </h2>
+
+          <p class="text-brand-ivory/85 text-base sm:text-lg font-normal leading-relaxed">
+            Per offrirti la massima cura ed evitare lunghe attese, gestiamo le prenotazioni della sala e le ordinazioni per l'asporto <strong>esclusivamente via telefono</strong>.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
+            <!-- Table Booking Card -->
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-5 backdrop-blur-sm">
+              <div class="text-2xl mb-2">🍽️</div>
+              <h3 class="font-bold text-brand-yellow text-base mb-1">Cena al Locale</h3>
+              <p class="text-xs text-brand-ivory/80 leading-relaxed">
+                Ampia sala climatizzata ideale per famiglie, comitive e coppie. Consigliata la prenotazione anticipata per il venerdì e sabato sera.
+              </p>
+            </div>
+
+            <!-- Takeout Card -->
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-5 backdrop-blur-sm">
+              <div class="text-2xl mb-2">📦</div>
+              <h3 class="font-bold text-brand-yellow text-base mb-1">Pizza d'Asporto</h3>
+              <p class="text-xs text-brand-ivory/80 leading-relaxed">
+                Chiama, concorda l'orario di ritiro e passa a ritirare le tue pizze appena sfornate e fumanti direttamente al banco.
+              </p>
+            </div>
+          </div>
+
+          <!-- Big Call CTA Button -->
+          <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <a
+              href="tel:0766370162"
+              id="reservations-big-call-btn"
+              class="inline-flex items-center justify-center gap-3 bg-brand-terracotta hover:bg-[#b04630] text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl hover:shadow-warm-hover transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-yellow animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20 15.5c-1.2 0-2.4-.2-3.6-.6-.3-.1-.7 0-1 .2l-2.2 2.2c-2.8-1.4-5.1-3.8-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1-.4-1.1-.6-2.3-.6-3.5 0-.6-.4-1-1-1H4c-.6 0-1 .4-1 1 0 9.4 7.6 17 17 17 .6 0 1-.4 1-1v-3.5c0-.6-.4-1-1-1z"/>
+              </svg>
+              <span>Chiama Ora: 0766 370162</span>
+            </a>
+            <span class="text-xs text-brand-ivory/70 text-center sm:text-left">
+              Chiamata diretta senza intermediari o costi extra.
+            </span>
+          </div>
+        </div>
+
+        <!-- Right: Orari di Apertura Completi -->
+        <div class="lg:col-span-5">
+          <div class="bg-brand-ivory text-brand-charcoal rounded-2xl p-6 sm:p-8 shadow-xl border border-brand-yellow/30">
+            <div class="flex items-center justify-between pb-4 border-b border-brand-charcoal/10">
+              <div class="flex items-center gap-3">
+                <span class="text-2xl">⏰</span>
+                <div>
+                  <h3 class="font-bold text-xl text-brand-green">Orari di Apertura</h3>
+                  <p class="text-xs font-normal text-brand-charcoal/70">Aperti per cena tutte le sere (eccetto mercoledì)</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Schedule List with Dynamic Current Day Highlight -->
+            <ul class="divide-y divide-brand-charcoal/10 py-3 text-sm font-medium" id="schedule-list">
+              <li class="py-2.5 flex items-center justify-between transition-all" data-day="1">
+                <span class="day-name text-brand-charcoal/90">Lunedì</span>
+                <span class="font-bold text-brand-green">18:30 – 22:30</span>
+              </li>
+              <li class="py-2.5 flex items-center justify-between transition-all" data-day="2">
+                <span class="day-name text-brand-charcoal/90">Martedì</span>
+                <span class="font-bold text-brand-green">18:30 – 22:30</span>
+              </li>
+              <li class="py-2.5 flex items-center justify-between bg-brand-terracotta/10 px-2 rounded-lg my-0.5" data-day="3">
+                <span class="day-name font-bold text-brand-terracotta">Mercoledì</span>
+                <span class="font-bold text-brand-terracotta uppercase text-xs tracking-wider bg-brand-terracotta text-white px-2.5 py-0.5 rounded-full">Chiuso</span>
+              </li>
+              <li class="py-2.5 flex items-center justify-between transition-all" data-day="4">
+                <span class="day-name text-brand-charcoal/90">Giovedì</span>
+                <span class="font-bold text-brand-green">18:30 – 22:30</span>
+              </li>
+              <li class="py-2.5 flex items-center justify-between transition-all" data-day="5">
+                <span class="day-name text-brand-charcoal/90">Venerdì</span>
+                <span class="font-bold text-brand-green">18:30 – 22:30</span>
+              </li>
+              <li class="py-2.5 flex items-center justify-between transition-all" data-day="6">
+                <span class="day-name text-brand-charcoal/90">Sabato</span>
+                <span class="font-bold text-brand-green">18:30 – 23:00</span>
+              </li>
+              <li class="py-2.5 flex items-center justify-between transition-all" data-day="0">
+                <span class="day-name text-brand-charcoal/90">Domenica</span>
+                <span class="font-bold text-brand-green">18:30 – 22:30</span>
+              </li>
+            </ul>
+
+            <div class="mt-4 pt-4 border-t border-brand-charcoal/10 text-center">
+              <p class="text-xs text-brand-charcoal/70">
+                📍 Via Luigi Sabatini, 2 - Civitavecchia (RM)
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Evidenzia automaticamente e in tempo reale il giorno odierno
+  const todayDay = new Date().getDay(); // 0 = Domenica, 1 = Lunedì, ..., 6 = Sabato
+  const currentDayEl = document.querySelector<HTMLLIElement>(`#schedule-list [data-day="${todayDay}"]`);
+  
+  if (currentDayEl) {
+    // Aggiungi leggero sfondo dorato e padding
+    currentDayEl.classList.add('bg-brand-yellow/20', 'rounded-lg', 'px-2', 'my-0.5', 'border', 'border-brand-yellow/40');
+    
+    // Inserisci il badge 'Oggi'
+    const dayNameSpan = currentDayEl.querySelector('.day-name');
+    if (dayNameSpan && !dayNameSpan.querySelector('.today-badge')) {
+      const todayBadge = document.createElement('span');
+      todayBadge.className = 'today-badge text-[10px] font-bold uppercase tracking-wider bg-brand-green text-white px-2 py-0.5 rounded-full ml-2 shadow-xs align-middle';
+      todayBadge.textContent = 'Oggi';
+      dayNameSpan.appendChild(todayBadge);
+    }
+  }
+</script>
+
