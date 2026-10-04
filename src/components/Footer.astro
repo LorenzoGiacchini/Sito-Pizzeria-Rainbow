@@ -1,6 +1,7 @@
 ---
 // Footer.astro
 const currentYear = new Date().getFullYear();
+const base = import.meta.env.BASE_URL;
 ---
 
 <footer id="contatti" class="bg-brand-green text-brand-ivory border-t-4 border-brand-yellow/30 pt-16 pb-12 sm:pb-8">
@@ -14,7 +15,7 @@ const currentYear = new Date().getFullYear();
         <div class="flex items-center gap-3.5">
           <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 border-brand-yellow/60 flex-shrink-0 shadow-lg bg-brand-green">
             <img 
-              src="/images/logo.jpeg" 
+              src={`${base}images/logo.jpeg`} 
               alt="Logo Pizzeria Rainbow" 
               class="w-full h-full object-cover" 
               width="80"
@@ -42,7 +43,6 @@ const currentYear = new Date().getFullYear();
 
       <!-- Col 2: Orari di Apertura -->
       <div class="space-y-4">
-        <!-- Titolo secondario (Bold) -->
         <h4 class="font-bold text-lg text-brand-yellow tracking-wide">
           Orari di Apertura
         </h4>
@@ -126,33 +126,33 @@ const currentYear = new Date().getFullYear();
         </h4>
         <ul class="text-xs sm:text-sm space-y-2.5 text-brand-ivory/85">
           <li>
-            <a href="/#hero" class="hover:text-brand-yellow transition-colors flex items-center gap-1.5">
+            <a href={`${base}#hero`} class="hover:text-brand-yellow transition-colors flex items-center gap-1.5">
               <span>›</span> <span>Home</span>
             </a>
           </li>
           <li>
-            <a href="/#chi-siamo" class="hover:text-brand-yellow transition-colors flex items-center gap-1.5">
+            <a href={`${base}#chi-siamo`} class="hover:text-brand-yellow transition-colors flex items-center gap-1.5">
               <span>›</span> <span>Chi Siamo & Storia</span>
             </a>
           </li>
           <li>
-            <a href="/#menu" class="hover:text-brand-yellow transition-colors flex items-center gap-1.5">
+            <a href={`${base}#menu`} class="hover:text-brand-yellow transition-colors flex items-center gap-1.5">
               <span>›</span> <span>Il Menù con Prezzi</span>
             </a>
           </li>
           <li>
-            <a href="/#prenotazioni" class="hover:text-brand-yellow transition-colors flex items-center gap-1.5">
+            <a href={`${base}#prenotazioni`} class="hover:text-brand-yellow transition-colors flex items-center gap-1.5">
               <span>›</span> <span>Prenotazioni & Asporto</span>
             </a>
           </li>
           <li>
-            <a href="/#dove-siamo" class="hover:text-brand-yellow transition-colors flex items-center gap-1.5">
+            <a href={`${base}#dove-siamo`} class="hover:text-brand-yellow transition-colors flex items-center gap-1.5">
               <span>›</span> <span>Dove Siamo</span>
             </a>
           </li>
           <li class="pt-2 border-t border-brand-ivory/15">
             <a 
-              href="/privacy-policy" 
+              href={`${base}privacy-policy`} 
               class="text-brand-yellow hover:underline transition-colors font-medium flex items-center gap-1.5"
             >
               <span>🔒</span> <span>Privacy & Cookie Policy</span>
@@ -169,7 +169,7 @@ const currentYear = new Date().getFullYear();
         © {currentYear} Pizzeria Rainbow • Example SRL - P.IVA 00000000000 - Civitavecchia (RM). Tutti i diritti riservati.
       </p>
       <div class="flex items-center gap-4">
-        <a href="/privacy-policy" class="hover:text-brand-ivory underline transition-colors">Privacy & Cookie Policy</a>
+        <a href={`${base}privacy-policy`} class="hover:text-brand-ivory underline transition-colors">Privacy & Cookie Policy</a>
         <span>•</span>
         <span>Sito Informativo No-Ecommerce</span>
       </div>

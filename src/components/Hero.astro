@@ -1,5 +1,6 @@
 ---
 // Hero.astro
+const base = import.meta.env.BASE_URL;
 ---
 
 <section id="hero" class="relative overflow-hidden bg-brand-green text-brand-ivory pt-8 pb-16 lg:pt-16 lg:pb-24">
@@ -94,8 +95,23 @@
 
           <!-- Main Image Frame with Warm Shadow -->
           <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-brand-ivory/20 group">
+            <!-- Seal / Crest Badge over the image celebrating the brand -->
+            <div class="absolute top-4 left-4 z-20 flex items-center gap-3 bg-brand-ivory/95 backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-xl border border-brand-yellow/60">
+              <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-brand-yellow shadow-md flex-shrink-0 bg-brand-green">
+                <img 
+                  src={`${base}images/logo.jpeg`} 
+                  alt="Marchio Storico Pizzeria Rainbow" 
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div class="flex flex-col pr-1">
+                <span class="text-xs font-black uppercase text-brand-green tracking-wide leading-none">Marchio Originale</span>
+                <span class="text-[11px] font-bold text-brand-terracotta leading-tight">Pizzeria Rainbow</span>
+              </div>
+            </div>
+
             <img 
-              src="/images/hero.jpg" 
+              src={`${base}images/hero.jpg`} 
               alt="Atmosfera calda della Pizzeria Rainbow a Civitavecchia con pizza appena sfornata" 
               class="w-full h-80 sm:h-96 lg:h-[460px] object-cover object-center transform group-hover:scale-105 transition-transform duration-700"
               loading="eager"
@@ -115,7 +131,7 @@
                 aria-label="Chiama direttamente"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20 15.5c-1.2 0-2.4-.2-3.6-.6-.3-.1-.7 0-1 .2l-2.2 2.2c-2.8-1.4-5.1-3.8-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1-.4-1.1-.6-2.3-.6-3.5 0-.6-.4-1-1-1H4c-.6 0-1 .4-1 1 0 9.4 7.6 17 17 17 .6 0 1-.4 1-1v-3.5c0-.6-.4-1-1-1z"/>
+                  <path d="M20 15.5c-1.2 0-2.4-.2-3.6-.6-1.1-.4-2.3-.6-3.5-.6-.6 0-1-.4-1-1V4c0-.6.4-1 1-1 9.4 0 17 7.6 17 17 0 .6-.4 1-1 1h-3.5c-.6 0-1-.4-1-1z"/>
                 </svg>
               </a>
             </div>
