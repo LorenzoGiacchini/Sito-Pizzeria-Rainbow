@@ -1,3 +1,5 @@
+const base = import.meta.env.BASE_URL;
+
 export interface MenuItem {
   id: string;
   name: string;
@@ -27,7 +29,7 @@ export const menuItems: MenuItem[] = [
     categoryLabel: 'Pizze',
     description: 'Pomodoro San Marzano DOP, mozzarella fior di latte, basilico fresco e un filo d’olio extravergine d’oliva.',
     price: '€ 7,50',
-    image: '/images/pizza-margherita.jpg',
+    image: `${base}images/pizza-margherita.jpg`,
     popular: true,
     vegetarian: true,
   },
@@ -38,7 +40,7 @@ export const menuItems: MenuItem[] = [
     categoryLabel: 'Pizze',
     description: 'Pomodoro San Marzano, fior di latte, salame piccante artigianale campano e peperoncino.',
     price: '€ 9,00',
-    image: '/images/pizza-margherita.jpg',
+    image: `${base}images/pizza-margherita.jpg`,
     popular: true,
   },
   {
@@ -48,7 +50,7 @@ export const menuItems: MenuItem[] = [
     categoryLabel: 'Pizze',
     description: 'Fiordilatte, gorgonzola dolce DOP, fontina dop, scaglie di Grana Padano riserva.',
     price: '€ 10,00',
-    image: '/images/pizza-margherita.jpg',
+    image: `${base}images/pizza-margherita.jpg`,
     vegetarian: true,
   },
   {
@@ -58,7 +60,7 @@ export const menuItems: MenuItem[] = [
     categoryLabel: 'Pizze',
     description: 'Pomodoro, fiordilatte, prosciutto cotto scelto, funghi champignon freschi, carciofi alla romana, olive nere.',
     price: '€ 10,50',
-    image: '/images/pizza-margherita.jpg',
+    image: `${base}images/pizza-margherita.jpg`,
   },
   {
     id: 'boscaiola-speciale',
@@ -67,7 +69,7 @@ export const menuItems: MenuItem[] = [
     categoryLabel: 'Pizze',
     description: 'Fiordilatte, salsiccia nostrana di macelleria locale, funghi porcini trifolati e una punta di pepe.',
     price: '€ 11,00',
-    image: '/images/pizza-margherita.jpg',
+    image: `${base}images/pizza-margherita.jpg`,
     popular: true,
   },
   {
@@ -77,7 +79,7 @@ export const menuItems: MenuItem[] = [
     categoryLabel: 'Pizze',
     description: 'Pomodoro San Marzano, mozzarella di bufala a crudo, datterini confit, olio al basilico fresco.',
     price: '€ 11,50',
-    image: '/images/pizza-margherita.jpg',
+    image: `${base}images/pizza-margherita.jpg`,
     vegetarian: true,
   },
 
@@ -89,7 +91,7 @@ export const menuItems: MenuItem[] = [
     categoryLabel: 'Primi di Pasta',
     description: 'Pasta di Gragnano IGP, guanciale laziale croccante, tuorlo d’uovo fresco, Pecorino Romano DOP e pepe nero tostato.',
     price: '€ 11,00',
-    image: '/images/primi-pasta.jpg',
+    image: `${base}images/primi-pasta.jpg`,
     popular: true,
   },
   {
@@ -99,7 +101,7 @@ export const menuItems: MenuItem[] = [
     categoryLabel: 'Primi di Pasta',
     description: 'Sugo al pomodoro San Marzano lento, guanciale artigianale sfumato al vino bianco, Pecorino Romano DOP abbondante.',
     price: '€ 11,00',
-    image: '/images/primi-pasta.jpg',
+    image: `${base}images/primi-pasta.jpg`,
     popular: true,
   },
   {
@@ -109,7 +111,7 @@ export const menuItems: MenuItem[] = [
     categoryLabel: 'Primi di Pasta',
     description: 'Tonnarelli all’uovo fatti in casa mantecati con crema vellutata di Pecorino Romano DOP e macinata fresca di pepe nero.',
     price: '€ 10,50',
-    image: '/images/primi-pasta.jpg',
+    image: `${base}images/primi-pasta.jpg`,
     vegetarian: true,
   },
   {
@@ -119,7 +121,7 @@ export const menuItems: MenuItem[] = [
     categoryLabel: 'Primi di Pasta',
     description: 'Fettuccine tirate a mano, funghi porcini profumati al timo fresco, aglio dolce e prezzemolo fresco.',
     price: '€ 12,50',
-    image: '/images/primi-pasta.jpg',
+    image: `${base}images/primi-pasta.jpg`,
   },
 
   // SECONDI DI CARNE
@@ -130,7 +132,7 @@ export const menuItems: MenuItem[] = [
     categoryLabel: 'Secondi di Carne',
     description: 'Tagliata di manzo scelta cotta su brace ardente (300g), rucola fresca di campo, petali di Grana Padano DOP e riduzione balsamica.',
     price: '€ 18,50',
-    image: '/images/secondi-carne.jpg',
+    image: `${base}images/secondi-carne.jpg`,
     popular: true,
   },
   {
@@ -140,7 +142,7 @@ export const menuItems: MenuItem[] = [
     categoryLabel: 'Secondi di Carne',
     description: 'Controfiletto di manzo al sangue o media cottura, insaporito con sale grosso dolce, rosmarino fresco e olio EVO.',
     price: '€ 17,50',
-    image: '/images/secondi-carne.jpg',
+    image: `${base}images/secondi-carne.jpg`,
   },
   {
     id: 'grigliata-mista-carne',
@@ -149,7 +151,7 @@ export const menuItems: MenuItem[] = [
     categoryLabel: 'Secondi di Carne',
     description: 'Composizione di salsiccia di maiale paesana, spuntatura caramellata, arrosticini e bistecca di vitella con patate al forno.',
     price: '€ 19,50',
-    image: '/images/secondi-carne.jpg',
+    image: `${base}images/secondi-carne.jpg`,
     popular: true,
   },
   {
@@ -159,7 +161,7 @@ export const menuItems: MenuItem[] = [
     categoryLabel: 'Secondi di Carne',
     description: 'Cotto alla brace a carbone di legna, accompagnata da patate rustiche al forno con rosmarino e aglio in camicia.',
     price: '€ 16,00',
-    image: '/images/secondi-carne.jpg',
+    image: `${base}images/secondi-carne.jpg`,
   },
 
   // DOLCI & BEVANDE
@@ -170,7 +172,7 @@ export const menuItems: MenuItem[] = [
     categoryLabel: 'Dolci & Bevande',
     description: 'Ricetta segreta di oltre vent’anni: savoiardi imbevuti di vero espresso italiano, mascarpone montato a mano e cacao amaro olandese.',
     price: '€ 5,50',
-    image: '/images/dessert-dolce.jpg',
+    image: `${base}images/dessert-dolce.jpg`,
     popular: true,
     vegetarian: true,
   },
@@ -181,7 +183,7 @@ export const menuItems: MenuItem[] = [
     categoryLabel: 'Dolci & Bevande',
     description: 'Crema di latte e vaniglia naturale del Madagascar con coulis tiepido di frutti di bosco o caramello salato.',
     price: '€ 5,00',
-    image: '/images/dessert-dolce.jpg',
+    image: `${base}images/dessert-dolce.jpg`,
     vegetarian: true,
   },
   {
