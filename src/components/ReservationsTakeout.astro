@@ -77,37 +77,78 @@
               </div>
             </div>
 
+            <!-- Dynamic Holiday Alert Banner (shown when today is a holiday) -->
+            <div id="today-holiday-alert" class="hidden my-3 p-3 bg-amber-50 border-l-4 border-amber-500 rounded-r-xl text-xs text-amber-950 shadow-sm animate-pulse">
+              <div class="flex items-center gap-2 font-bold text-sm text-amber-900">
+                <span class="text-base">⚠️</span>
+                <span id="today-holiday-title">Oggi è un Giorno Festivo</span>
+              </div>
+              <p class="mt-1 font-semibold text-amber-900 leading-snug">
+                A causa della festività gli orari potrebbero variare. Ti consigliamo di chiamare lo <a href="tel:0766370162" class="underline font-bold text-brand-green">0766 370162</a> per maggiori informazioni.
+              </p>
+            </div>
+
             <!-- Schedule List with Dynamic Current Day Highlight -->
             <ul class="divide-y divide-brand-charcoal/10 py-3 text-sm font-medium" id="schedule-list">
-              <li class="py-2.5 flex items-center justify-between transition-all" data-day="1">
-                <span class="day-name text-brand-charcoal/90">Lunedì</span>
-                <span class="font-bold text-brand-green">18:30 – 22:30</span>
+              <li class="py-2.5 flex flex-col justify-center transition-all" data-day="1">
+                <div class="flex items-center justify-between">
+                  <span class="day-name text-brand-charcoal/90">Lunedì</span>
+                  <span class="day-hours font-bold text-brand-green">18:30 – 22:30</span>
+                </div>
               </li>
-              <li class="py-2.5 flex items-center justify-between transition-all" data-day="2">
-                <span class="day-name text-brand-charcoal/90">Martedì</span>
-                <span class="font-bold text-brand-green">18:30 – 22:30</span>
+              <li class="py-2.5 flex flex-col justify-center transition-all" data-day="2">
+                <div class="flex items-center justify-between">
+                  <span class="day-name text-brand-charcoal/90">Martedì</span>
+                  <span class="day-hours font-bold text-brand-green">18:30 – 22:30</span>
+                </div>
               </li>
-              <li class="py-2.5 flex items-center justify-between bg-brand-terracotta/10 px-2 rounded-lg my-0.5" data-day="3">
-                <span class="day-name font-bold text-brand-terracotta">Mercoledì</span>
-                <span class="font-bold text-brand-terracotta uppercase text-xs tracking-wider bg-brand-terracotta text-white px-2.5 py-0.5 rounded-full">Chiuso</span>
+              <li class="py-2.5 flex flex-col justify-center bg-brand-terracotta/10 px-2 rounded-lg my-0.5" data-day="3">
+                <div class="flex items-center justify-between">
+                  <span class="day-name font-bold text-brand-terracotta">Mercoledì</span>
+                  <span class="font-bold text-brand-terracotta uppercase text-xs tracking-wider bg-brand-terracotta text-white px-2.5 py-0.5 rounded-full">Chiuso</span>
+                </div>
               </li>
-              <li class="py-2.5 flex items-center justify-between transition-all" data-day="4">
-                <span class="day-name text-brand-charcoal/90">Giovedì</span>
-                <span class="font-bold text-brand-green">18:30 – 22:30</span>
+              <li class="py-2.5 flex flex-col justify-center transition-all" data-day="4">
+                <div class="flex items-center justify-between">
+                  <span class="day-name text-brand-charcoal/90">Giovedì</span>
+                  <span class="day-hours font-bold text-brand-green">18:30 – 22:30</span>
+                </div>
               </li>
-              <li class="py-2.5 flex items-center justify-between transition-all" data-day="5">
-                <span class="day-name text-brand-charcoal/90">Venerdì</span>
-                <span class="font-bold text-brand-green">18:30 – 22:30</span>
+              <li class="py-2.5 flex flex-col justify-center transition-all" data-day="5">
+                <div class="flex items-center justify-between">
+                  <span class="day-name text-brand-charcoal/90">Venerdì</span>
+                  <span class="day-hours font-bold text-brand-green">18:30 – 22:30</span>
+                </div>
               </li>
-              <li class="py-2.5 flex items-center justify-between transition-all" data-day="6">
-                <span class="day-name text-brand-charcoal/90">Sabato</span>
-                <span class="font-bold text-brand-green">18:30 – 23:00</span>
+              <li class="py-2.5 flex flex-col justify-center transition-all" data-day="6">
+                <div class="flex items-center justify-between">
+                  <span class="day-name text-brand-charcoal/90">Sabato</span>
+                  <span class="day-hours font-bold text-brand-green">18:30 – 23:00</span>
+                </div>
               </li>
-              <li class="py-2.5 flex items-center justify-between transition-all" data-day="0">
-                <span class="day-name text-brand-charcoal/90">Domenica</span>
-                <span class="font-bold text-brand-green">18:30 – 22:30</span>
+              <li class="py-2.5 flex flex-col justify-center transition-all" data-day="0">
+                <div class="flex items-center justify-between">
+                  <span class="day-name text-brand-charcoal/90">Domenica</span>
+                  <span class="day-hours font-bold text-brand-green">18:30 – 22:30</span>
+                </div>
+              </li>
+              <li class="py-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 bg-amber-500/10 px-2.5 rounded-lg my-1 border border-amber-500/25" data-day="festivi">
+                <div class="flex items-center gap-1.5 font-bold text-amber-900">
+                  <span class="text-sm">🎉</span>
+                  <span class="day-name">Giorni Festivi</span>
+                </div>
+                <span class="text-xs font-semibold text-amber-900 bg-amber-100/90 border border-amber-300 px-2.5 py-1 rounded-md text-left sm:text-right">
+                  A causa della festività gli orari potrebbero variare
+                </span>
               </li>
             </ul>
+
+            <div class="mt-3 p-3 bg-amber-50/80 border border-amber-200/80 rounded-xl text-xs text-brand-charcoal/85 flex items-start gap-2.5">
+              <span class="text-amber-600 text-sm flex-shrink-0 mt-0.5">ℹ️</span>
+              <p class="leading-relaxed">
+                <strong>Festività e Ricorrenze:</strong> Nei giorni festivi, a causa della festività gli orari potrebbero variare. Ti invitiamo sempre a contattarci al <a href="tel:0766370162" class="font-bold text-brand-green underline hover:text-brand-terracotta">0766 370162</a> per confermare orari e disponibilità.
+              </p>
+            </div>
 
             <div class="mt-4 pt-4 border-t border-brand-charcoal/10 text-center">
               <p class="text-xs text-brand-charcoal/70">
@@ -123,21 +164,73 @@
 </section>
 
 <script>
-  // Evidenzia automaticamente e in tempo reale il giorno odierno
-  const todayDay = new Date().getDay(); // 0 = Domenica, 1 = Lunedì, ..., 6 = Sabato
+  import { checkHoliday, getWeekHolidays } from '../utils/holidays';
+
+  const today = new Date();
+  const todayDay = today.getDay(); // 0 = Domenica, 1 = Lunedì, ..., 6 = Sabato
+
+  // Controllo eventuale parametro per test festività (?festivo=1)
+  const urlParams = new URLSearchParams(window.location.search);
+  const isTestSimulated = urlParams.get('festivo') === '1' || urlParams.get('festivo') === 'true';
+
+  const todayHolidayInfo = isTestSimulated
+    ? { isHoliday: true, name: 'Giorno Festivo' }
+    : checkHoliday(today);
+
+  // 1. Evidenzia automaticamente e in tempo reale il giorno odierno
   const currentDayEl = document.querySelector<HTMLLIElement>(`#schedule-list [data-day="${todayDay}"]`);
   
   if (currentDayEl) {
-    // Aggiungi leggero sfondo dorato e padding
     currentDayEl.classList.add('bg-brand-yellow/20', 'rounded-lg', 'px-2', 'my-0.5', 'border', 'border-brand-yellow/40');
     
-    // Inserisci il badge 'Oggi'
     const dayNameSpan = currentDayEl.querySelector('.day-name');
     if (dayNameSpan && !dayNameSpan.querySelector('.today-badge')) {
       const todayBadge = document.createElement('span');
-      todayBadge.className = 'today-badge text-[10px] font-bold uppercase tracking-wider bg-brand-green text-white px-2 py-0.5 rounded-full ml-2 shadow-xs align-middle';
+      todayBadge.className = 'today-badge text-[10px] font-bold uppercase tracking-wider bg-brand-green text-white px-2 py-0.5 rounded-full ml-2 shadow-xs align-middle inline-block';
       todayBadge.textContent = 'Oggi';
       dayNameSpan.appendChild(todayBadge);
+    }
+  }
+
+  // 2. Controlla le festività della settimana corrente per annotare ciascun giorno festivo
+  const weekHolidays = getWeekHolidays(today);
+
+  // Se simulato per test, includi oggi nella mappa se non già presente
+  if (isTestSimulated && !weekHolidays.has(todayDay)) {
+    const formattedDate = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}`;
+    weekHolidays.set(todayDay, { name: 'Giorno Festivo', dateStr: formattedDate });
+  }
+
+  // Per ogni giorno festivo che cade nella settimana, aggiungi la dicitura sul giorno specifico
+  weekHolidays.forEach((holiday, dayOfWeek) => {
+    const dayEl = document.querySelector<HTMLLIElement>(`#schedule-list [data-day="${dayOfWeek}"]`);
+    if (dayEl) {
+      dayEl.classList.add('bg-amber-50', 'border', 'border-amber-300', 'rounded-lg', 'px-2', 'my-1');
+      
+      const dayNameSpan = dayEl.querySelector('.day-name');
+      if (dayNameSpan && !dayEl.querySelector('.holiday-tag')) {
+        const holidayTag = document.createElement('span');
+        holidayTag.className = 'holiday-tag text-[10px] font-bold bg-amber-600 text-white px-2 py-0.5 rounded-full ml-1.5 align-middle inline-block';
+        holidayTag.textContent = `🎉 ${holiday.name}`;
+        dayNameSpan.appendChild(holidayTag);
+      }
+
+      if (!dayEl.querySelector('.holiday-notice-text')) {
+        const noticeEl = document.createElement('div');
+        noticeEl.className = 'holiday-notice-text text-xs font-semibold text-amber-900 bg-amber-100/90 border border-amber-200 rounded-md px-2 py-1 mt-1 flex items-center gap-1.5';
+        noticeEl.innerHTML = `<span>⚠️</span> <span>A causa della festività gli orari potrebbero variare</span>`;
+        dayEl.appendChild(noticeEl);
+      }
+    }
+  });
+
+  // 3. Se oggi è festivo, mostra il banner di avviso in cima alla card degli orari
+  if (todayHolidayInfo.isHoliday) {
+    const alertBanner = document.getElementById('today-holiday-alert');
+    const titleEl = document.getElementById('today-holiday-title');
+    if (alertBanner && titleEl) {
+      titleEl.textContent = `Oggi è festivo: ${todayHolidayInfo.name}`;
+      alertBanner.classList.remove('hidden');
     }
   }
 </script>

@@ -1,0 +1,42 @@
+---
+// BackToTop.astro
+// Pulsantino sempre presente in basso a destra per tornare all'inizio della pagina
+---
+
+<button
+  type="button"
+  id="back-to-top-btn"
+  aria-label="Torna all'inizio della pagina"
+  title="Torna all'inizio della pagina"
+  class="group fixed bottom-20 right-4 sm:bottom-6 sm:right-6 z-50 w-12 h-12 rounded-full bg-brand-green hover:bg-brand-terracotta text-brand-yellow hover:text-white border-2 border-brand-yellow shadow-xl hover:shadow-warm-hover flex items-center justify-center cursor-pointer transform hover:-translate-y-1 hover:scale-105 active:scale-95 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-brand-yellow/50"
+>
+  <!-- Freccia verso l'alto con micro-animazione al hover -->
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    class="w-6 h-6 transform group-hover:-translate-y-0.5 transition-transform duration-200" 
+    fill="none" 
+    viewBox="0 0 24 24" 
+    stroke="currentColor" 
+    stroke-width="2.5"
+    aria-hidden="true"
+  >
+    <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+  </svg>
+
+  <!-- Tooltip fluttuante (visibile da desktop su hover) -->
+  <span class="pointer-events-none absolute right-full mr-3 top-1/2 -translate-y-1/2 px-2.5 py-1 bg-brand-charcoal text-white text-xs font-semibold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap shadow-lg hidden sm:block border border-white/10">
+    Torna all'inizio ↑
+  </span>
+</button>
+
+<script>
+  // Ritorno fluido a inizio pagina al click del pulsante
+  const backToTopBtn = document.getElementById('back-to-top-btn');
+
+  backToTopBtn?.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+</script>

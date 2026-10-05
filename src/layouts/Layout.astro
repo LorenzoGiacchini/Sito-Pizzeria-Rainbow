@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import BackToTop from '../components/BackToTop.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -113,6 +114,9 @@ const {
     </main>
 
     <Footer />
+
+    <!-- Pulsantino sempre presente in basso a destra per tornare a inizio pagina -->
+    <BackToTop />
 
     <!-- Sticky Mobile Quick-Call Bar (Visible only on small screens) -->
     <aside 

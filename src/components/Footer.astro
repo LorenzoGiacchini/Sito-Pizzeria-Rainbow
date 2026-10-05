@@ -46,36 +46,75 @@ const base = import.meta.env.BASE_URL;
         <h4 class="font-bold text-lg text-brand-yellow tracking-wide">
           Orari di Apertura
         </h4>
-        <ul class="text-xs sm:text-sm space-y-2 text-brand-ivory/85">
-          <li class="flex justify-between py-1 border-b border-brand-ivory/10">
-            <span>Lunedì:</span>
-            <span class="font-medium text-white">18:30 – 22:30</span>
+
+        <!-- Alert dinamico se oggi è festivo -->
+        <div id="footer-today-holiday-alert" class="hidden p-2.5 bg-amber-500/20 border border-brand-yellow/60 rounded-xl text-xs text-brand-yellow">
+          <p class="font-bold flex items-center gap-1.5">
+            <span>⚠️</span> <span id="footer-today-holiday-title">Oggi è festivo</span>
+          </p>
+          <p class="text-[11px] text-brand-ivory/90 mt-0.5">
+            A causa della festività gli orari potrebbero variare.
+          </p>
+        </div>
+
+        <ul class="text-xs sm:text-sm space-y-2 text-brand-ivory/85" id="footer-schedule-list">
+          <li class="flex flex-col py-1 border-b border-brand-ivory/10 transition-colors" data-footer-day="1">
+            <div class="flex justify-between items-center">
+              <span class="footer-day-label">Lunedì:</span>
+              <span class="font-medium text-white">18:30 – 22:30</span>
+            </div>
           </li>
-          <li class="flex justify-between py-1 border-b border-brand-ivory/10">
-            <span>Martedì:</span>
-            <span class="font-medium text-white">18:30 – 22:30</span>
+          <li class="flex flex-col py-1 border-b border-brand-ivory/10 transition-colors" data-footer-day="2">
+            <div class="flex justify-between items-center">
+              <span class="footer-day-label">Martedì:</span>
+              <span class="font-medium text-white">18:30 – 22:30</span>
+            </div>
           </li>
-          <li class="flex justify-between py-1 border-b border-brand-ivory/10 text-brand-yellow">
-            <span class="font-bold">Mercoledì:</span>
-            <span class="font-bold uppercase tracking-wider bg-brand-terracotta text-white px-2 py-0.5 rounded text-xs">Chiuso</span>
+          <li class="flex flex-col py-1 border-b border-brand-ivory/10 text-brand-yellow" data-footer-day="3">
+            <div class="flex justify-between items-center">
+              <span class="footer-day-label font-bold">Mercoledì:</span>
+              <span class="font-bold uppercase tracking-wider bg-brand-terracotta text-white px-2 py-0.5 rounded text-xs">Chiuso</span>
+            </div>
           </li>
-          <li class="flex justify-between py-1 border-b border-brand-ivory/10">
-            <span>Giovedì:</span>
-            <span class="font-medium text-white">18:30 – 22:30</span>
+          <li class="flex flex-col py-1 border-b border-brand-ivory/10 transition-colors" data-footer-day="4">
+            <div class="flex justify-between items-center">
+              <span class="footer-day-label">Giovedì:</span>
+              <span class="font-medium text-white">18:30 – 22:30</span>
+            </div>
           </li>
-          <li class="flex justify-between py-1 border-b border-brand-ivory/10">
-            <span>Venerdì:</span>
-            <span class="font-medium text-white">18:30 – 22:30</span>
+          <li class="flex flex-col py-1 border-b border-brand-ivory/10 transition-colors" data-footer-day="5">
+            <div class="flex justify-between items-center">
+              <span class="footer-day-label">Venerdì:</span>
+              <span class="font-medium text-white">18:30 – 22:30</span>
+            </div>
           </li>
-          <li class="flex justify-between py-1 border-b border-brand-ivory/10">
-            <span>Sabato:</span>
-            <span class="font-medium text-white">18:30 – 23:00</span>
+          <li class="flex flex-col py-1 border-b border-brand-ivory/10 transition-colors" data-footer-day="6">
+            <div class="flex justify-between items-center">
+              <span class="footer-day-label">Sabato:</span>
+              <span class="font-medium text-white">18:30 – 23:00</span>
+            </div>
           </li>
-          <li class="flex justify-between py-1">
-            <span>Domenica:</span>
-            <span class="font-medium text-white">18:30 – 22:30</span>
+          <li class="flex flex-col py-1 border-b border-brand-ivory/10 transition-colors" data-footer-day="0">
+            <div class="flex justify-between items-center">
+              <span class="footer-day-label">Domenica:</span>
+              <span class="font-medium text-white">18:30 – 22:30</span>
+            </div>
+          </li>
+          <li class="flex flex-col py-2 px-2.5 bg-brand-yellow/15 border border-brand-yellow/40 rounded-lg text-brand-yellow mt-1.5" data-footer-day="festivi">
+            <div class="flex justify-between items-center font-bold">
+              <span class="flex items-center gap-1.5">
+                <span>🎉</span> <span>Giorni Festivi:</span>
+              </span>
+              <span class="text-[10px] uppercase font-bold tracking-wider bg-brand-yellow text-brand-charcoal px-2 py-0.5 rounded-full">Info</span>
+            </div>
+            <p class="text-xs text-brand-ivory/95 mt-1 font-medium leading-snug">
+              A causa della festività gli orari potrebbero variare
+            </p>
           </li>
         </ul>
+        <p class="text-[11px] text-brand-ivory/70 italic">
+          * Nei giorni festivi gli orari potrebbero variare. Info al <a href="tel:0766370162" class="underline text-brand-yellow">0766 370162</a>.
+        </p>
       </div>
 
       <!-- Col 3: Contatti & Dove Siamo -->
@@ -177,3 +216,69 @@ const base = import.meta.env.BASE_URL;
 
   </div>
 </footer>
+
+<script>
+  import { checkHoliday, getWeekHolidays } from '../utils/holidays';
+
+  const today = new Date();
+  const todayDay = today.getDay(); // 0 = Domenica, 1 = Lunedì, ..., 6 = Sabato
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const isTestSimulated = urlParams.get('festivo') === '1' || urlParams.get('festivo') === 'true';
+
+  const todayHolidayInfo = isTestSimulated
+    ? { isHoliday: true, name: 'Giorno Festivo' }
+    : checkHoliday(today);
+
+  // 1. Evidenzia giorno corrente nel footer
+  const currentFooterDayEl = document.querySelector<HTMLLIElement>(`#footer-schedule-list [data-footer-day="${todayDay}"]`);
+  if (currentFooterDayEl) {
+    currentFooterDayEl.classList.add('bg-white/10', 'rounded-md', 'px-1.5');
+    const labelSpan = currentFooterDayEl.querySelector('.footer-day-label');
+    if (labelSpan && !labelSpan.querySelector('.footer-today-badge')) {
+      const todayBadge = document.createElement('span');
+      todayBadge.className = 'footer-today-badge text-[9px] font-bold uppercase bg-brand-yellow text-brand-charcoal px-1.5 py-0.5 rounded ml-1.5 inline-block';
+      todayBadge.textContent = 'Oggi';
+      labelSpan.appendChild(todayBadge);
+    }
+  }
+
+  // 2. Controlla festività della settimana
+  const weekHolidays = getWeekHolidays(today);
+  if (isTestSimulated && !weekHolidays.has(todayDay)) {
+    const formattedDate = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}`;
+    weekHolidays.set(todayDay, { name: 'Giorno Festivo', dateStr: formattedDate });
+  }
+
+  weekHolidays.forEach((holiday, dayOfWeek) => {
+    const dayEl = document.querySelector<HTMLLIElement>(`#footer-schedule-list [data-footer-day="${dayOfWeek}"]`);
+    if (dayEl) {
+      dayEl.classList.add('bg-brand-yellow/15', 'border', 'border-brand-yellow/40', 'rounded-md', 'px-1.5');
+      
+      const labelSpan = dayEl.querySelector('.footer-day-label');
+      if (labelSpan && !dayEl.querySelector('.footer-holiday-badge')) {
+        const badge = document.createElement('span');
+        badge.className = 'footer-holiday-badge text-[9px] font-bold bg-brand-yellow text-brand-charcoal px-1.5 py-0.5 rounded ml-1 inline-block';
+        badge.textContent = `🎉 ${holiday.name}`;
+        labelSpan.appendChild(badge);
+      }
+
+      if (!dayEl.querySelector('.footer-holiday-notice')) {
+        const notice = document.createElement('div');
+        notice.className = 'footer-holiday-notice text-[11px] text-brand-yellow font-medium mt-0.5 leading-tight';
+        notice.textContent = '⚠️ A causa della festività gli orari potrebbero variare';
+        dayEl.appendChild(notice);
+      }
+    }
+  });
+
+  // 3. Se oggi è festivo, mostra il banner informativo anche nel footer
+  if (todayHolidayInfo.isHoliday) {
+    const banner = document.getElementById('footer-today-holiday-alert');
+    const title = document.getElementById('footer-today-holiday-title');
+    if (banner && title) {
+      title.textContent = `Oggi è festivo (${todayHolidayInfo.name})`;
+      banner.classList.remove('hidden');
+    }
+  }
+</script>
