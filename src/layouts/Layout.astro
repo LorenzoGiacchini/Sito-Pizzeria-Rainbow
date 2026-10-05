@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import BackToTop from '../components/BackToTop.astro';
+import { SITE_CONFIG } from '../utils/siteConfig';
 import '../styles/global.css';
 
 interface Props {
@@ -12,11 +13,43 @@ interface Props {
 }
 
 const {
-  title = "Pizzeria Rainbow | Storica Pizzeria & Ristorante a Civitavecchia dal 2003",
-  description = "Storica pizzeria e ristorante a Civitavecchia con oltre 20 anni di tradizione. Pizze artigianali a lenta lievitazione, primi piatti della tradizione e carne alla brace. Prenota o ordina da asporto al 0766 370162.",
-  canonicalUrl = "https://pizzeriarainbowcivitavecchia.it",
+  title = "Pizzeria Rainbow | Pizzeria & Ristorante a Civitavecchia",
+  description = "Pizzeria e ristorante a Civitavecchia. Pizze artigianali a lenta lievitazione, primi piatti della tradizione romana e carne alla brace. Prenota o ordina da asporto al 0766 370162.",
+  canonicalUrl,
   ogImage = `${import.meta.env.BASE_URL}images/hero.jpg`,
 } = Astro.props;
+
+// Risoluzione URL canonico e Open Graph coerente con l'ambiente (GitHub Pages o dominio personalizzato)
+const currentCanonical = canonicalUrl || (Astro.site ? new URL(Astro.url.pathname, Astro.site).href : `${SITE_CONFIG.officialDomain}${Astro.url.pathname}`);
+const resolvedOgImage = ogImage.startsWith('http') 
+  ? ogImage 
+  : (Astro.site ? new URL(ogImage, Astro.site).href : `${SITE_CONFIG.officialDomain}${ogImage}`);
+
+// Schema.org Restaurant Microdata conforme e validato, privo di dati inventati
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": ["Restaurant", "FoodEstablishment"],
+  "name": SITE_CONFIG.name,
+  "image": resolvedOgImage,
+  "telephone": SITE_CONFIG.telephone,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": SITE_CONFIG.address.streetAddress,
+    "addressLocality": SITE_CONFIG.address.addressLocality,
+    "addressRegion": SITE_CONFIG.address.addressRegion,
+    "postalCode": SITE_CONFIG.address.postalCode,
+    "addressCountry": SITE_CONFIG.address.addressCountry,
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": SITE_CONFIG.geo.latitude,
+    "longitude": SITE_CONFIG.geo.longitude,
+  },
+  "url": currentCanonical,
+  "servesCuisine": SITE_CONFIG.servesCuisine,
+  "priceRange": SITE_CONFIG.priceRange,
+  "openingHoursSpecification": SITE_CONFIG.openingHoursSpecification,
+};
 ---
 
 <!doctype html>
@@ -32,14 +65,14 @@ const {
     <meta name="description" content={description} />
     <meta name="author" content="Pizzeria Rainbow" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href={canonicalUrl} />
+    <link rel="canonical" href={currentCanonical} />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="restaurant" />
-    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:url" content={currentCanonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:image" content={resolvedOgImage} />
     <meta property="og:locale" content="it_IT" />
     <meta property="og:site_name" content="Pizzeria Rainbow Civitavecchia" />
 
@@ -47,62 +80,22 @@ const {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image" content={resolvedOgImage} />
 
-    <!-- Preconnect Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700;1,800&display=swap"
-      rel="stylesheet"
-    />
+    <!-- 
+      NOTA DI ACCESSIBILITÀ E PRIVACY: 
+      Google Fonts remoto è stato eliminato per tutelare la privacy ed evitare richieste a terze parti.
+      Il font Montserrat è servito e ospitato localmente tramite src/fonts/ e global.css.
+    -->
 
     <!-- Schema.org Restaurant Microdata -->
-    <script type="application/ld+json" is:inline>
-      {
-        "@context": "https://schema.org",
-        "@type": "Restaurant",
-        "name": "Pizzeria Rainbow",
-        "image": "https://pizzeriarainbowcivitavecchia.it/images/hero.jpg",
-        "telephone": "+390766370162",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Via Luigi Sabatini, 2",
-          "addressLocality": "Civitavecchia",
-          "addressRegion": "RM",
-          "postalCode": "00053",
-          "addressCountry": "IT"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 42.0924,
-          "longitude": 11.7964
-        },
-        "url": "https://pizzeriarainbowcivitavecchia.it",
-        "servesCuisine": ["Pizza", "Italian", "Meat", "Pasta"],
-        "priceRange": "€€",
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Thursday", "Friday", "Sunday"],
-            "opens": "18:30",
-            "closes": "22:30"
-          },
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": "Saturday",
-            "opens": "18:30",
-            "closes": "23:00"
-          }
-        ]
-      }
-    </script>
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
   </head>
   <body class="bg-brand-ivory text-brand-charcoal antialiased min-h-screen flex flex-col selection:bg-brand-terracotta selection:text-white">
     <!-- Skip to Content for Accessibility -->
     <a
       href="#main-content"
-      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 bg-brand-green text-brand-ivory px-4 py-2 rounded-lg shadow-lg font-medium"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 bg-brand-green text-brand-ivory px-4 py-2 rounded-lg shadow-lg font-medium focus:ring-2 focus:ring-brand-yellow focus:outline-none"
     >
       Vai al contenuto principale
     </a>
@@ -133,7 +126,7 @@ const {
       <a
         href="tel:0766370162"
         id="mobile-sticky-call-btn"
-        class="inline-flex items-center gap-2 bg-brand-terracotta hover:bg-[#b04630] text-white text-sm font-bold px-4 py-2 rounded-full shadow-md active:scale-95 transition-all"
+        class="inline-flex items-center gap-2 bg-brand-terracotta hover:bg-[#b04630] text-white text-sm font-bold px-4 py-2 rounded-full shadow-md active:scale-95 transition-all focus:outline-none focus:ring-2 focus:ring-brand-yellow"
         aria-label="Chiama Pizzeria Rainbow per prenotare o ordinare"
       >
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">

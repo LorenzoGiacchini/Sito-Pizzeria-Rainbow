@@ -10,6 +10,16 @@ export interface MenuItem {
   image: string;
   popular?: boolean;
   vegetarian?: boolean;
+  /**
+   * Ingredienti principali dichiarati (predisposto per modifiche puntuali)
+   */
+  ingredients?: string[];
+  /**
+   * Allergeni alimentari certificati ai sensi del Reg. UE 1169/2011.
+   * NOTA DI CONFORMITÀ: Non vengono inseriti allergeni inventati o presunti.
+   * Il campo è predisposto per accogliere i dati ufficiali dal registro allergeni/HACCP della pizzeria.
+   */
+  allergens?: string[];
 }
 
 export const menuCategories = [
@@ -170,7 +180,7 @@ export const menuItems: MenuItem[] = [
     name: 'Tiramisù della Casa',
     category: 'dolci-bevande',
     categoryLabel: 'Dolci & Bevande',
-    description: 'Ricetta segreta di oltre vent’anni: savoiardi imbevuti di vero espresso italiano, mascarpone montato a mano e cacao amaro olandese.',
+    description: 'Ricetta classica della casa: savoiardi imbevuti di vero espresso italiano, mascarpone montato a mano e cacao amaro.',
     price: '€ 5,50',
     image: `${base}images/dessert-dolce.jpg`,
     popular: true,
@@ -193,7 +203,7 @@ export const menuItems: MenuItem[] = [
     categoryLabel: 'Dolci & Bevande',
     description: 'Bionda tradizionale fresca, rossa doppio malto e selezione di birre artigianali laziali in bottiglia (33cl/75cl).',
     price: 'da € 3,50',
-    image: 'https://images.unsplash.com/photo-1535958636474-b021ee887b13?auto=format&fit=crop&w=600&q=80',
+    image: `${base}images/bevande-birra.jpg`,
   },
   {
     id: 'vino-della-casa',
@@ -202,6 +212,6 @@ export const menuItems: MenuItem[] = [
     categoryLabel: 'Dolci & Bevande',
     description: 'Vino bianco e rosso della casa in caraffa (1/4L, 1/2L, 1L) e carta dei vini selezionati del territorio regionale.',
     price: 'da € 4,00',
-    image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=600&q=80',
+    image: `${base}images/bevande-vino.jpg`,
   },
 ];

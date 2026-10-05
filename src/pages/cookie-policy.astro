@@ -1,0 +1,167 @@
+---
+// cookie-policy.astro
+import Layout from '../layouts/Layout.astro';
+import { SITE_CONFIG } from '../utils/siteConfig';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout
+  title="Cookie Policy | Pizzeria Rainbow Civitavecchia"
+  description="Informativa estesa sui cookie di Pizzeria Rainbow. Sito web statico e trasparente: zero cookie di profilazione, zero analytics di terze parti, privacy by design."
+>
+  <div class="py-12 sm:py-20 bg-brand-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Back Link -->
+      <div class="mb-8">
+        <a 
+          href={base} 
+          class="inline-flex items-center gap-2 text-brand-terracotta hover:text-[#b04630] font-bold text-sm transition-colors group focus:outline-none focus:ring-2 focus:ring-brand-terracotta rounded-lg px-2 py-1"
+        >
+          <span class="group-hover:-translate-x-1 transition-transform">←</span>
+          <span>Torna alla Home</span>
+        </a>
+      </div>
+
+      <!-- Legal Content Container -->
+      <article class="bg-white rounded-3xl p-6 sm:p-12 border border-brand-green/15 shadow-warm space-y-8">
+        
+        <header class="border-b border-brand-charcoal/10 pb-6 space-y-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-green/10 text-brand-green text-xs font-semibold uppercase tracking-wider">
+            Linee Guida Garante Privacy 10/06/2021 & Direttiva ePrivacy
+          </div>
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-brand-green">
+            Cookie Policy
+          </h1>
+          <p class="text-xs text-brand-charcoal/60">
+            Ultimo aggiornamento: Ottobre 2026
+          </p>
+        </header>
+
+        <!-- Section 1 -->
+        <section class="space-y-3">
+          <h2 class="text-xl sm:text-2xl font-bold text-brand-green">
+            1. Titolare del Trattamento
+          </h2>
+          <p class="text-sm sm:text-base text-brand-charcoal/80 leading-relaxed">
+            Il Titolare del trattamento per il presente sito web è:
+          </p>
+          <div class="bg-brand-ivory p-4 rounded-xl border border-brand-green/10 text-sm space-y-1">
+            <p><strong>Ragione Sociale:</strong> {SITE_CONFIG.legalName} (Pizzeria Rainbow)</p>
+            <p><strong>Sede Legale:</strong> {SITE_CONFIG.address.streetAddress}, {SITE_CONFIG.address.postalCode} {SITE_CONFIG.address.addressLocality} ({SITE_CONFIG.address.addressRegion})</p>
+            <p><strong>Partita IVA / Codice Fiscale:</strong> {SITE_CONFIG.vatNumber}</p>
+            <p><strong>Recapito Telefonico:</strong> <a href={`tel:${SITE_CONFIG.displayPhone.replace(/\s+/g, '')}`} class="text-brand-terracotta font-bold underline">{SITE_CONFIG.displayPhone}</a></p>
+          </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="space-y-3">
+          <h2 class="text-xl sm:text-2xl font-bold text-brand-green">
+            2. Cosa Sono i Cookie
+          </h2>
+          <p class="text-sm sm:text-base text-brand-charcoal/80 leading-relaxed">
+            I cookie sono stringhe di testo di piccole dimensioni che i siti web visitati dall'utente inviano al suo terminale (computer, tablet, smartphone), dove vengono memorizzati per essere poi ritrasmessi agli stessi siti alla successiva visita del medesimo utente.
+          </p>
+          <p class="text-sm sm:text-base text-brand-charcoal/80 leading-relaxed">
+            I cookie possono essere distinti principalmente in:
+          </p>
+          <ul class="list-disc pl-5 space-y-2 text-sm text-brand-charcoal/80">
+            <li><strong>Cookie tecnici o di sessione:</strong> utilizzati al solo fine di effettuare la trasmissione di una comunicazione su una rete di comunicazione elettronica, o nella misura strettamente necessaria all'erogatore di un servizio della società dell'informazione esplicitamente richiesto dall'utente. Non richiedono consenso preventivo.</li>
+            <li><strong>Cookie di profilazione:</strong> volti a creare profili relativi all'utente e utilizzati al fine di inviare messaggi pubblicitari in linea con le preferenze manifestate dallo stesso nell'ambito della navigazione in rete. Richiedono il consenso preventivo e informato dell'interessato.</li>
+            <li><strong>Cookie di terze parti:</strong> installati da un sito diverso da quello che l'utente sta visitando, attraverso componenti incorporati (es. mappe esterne, video, pixel di tracciamento social o strumenti pubblicitari).</li>
+          </ul>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="space-y-3">
+          <h2 class="text-xl sm:text-2xl font-bold text-brand-green">
+            3. Tecnologie Utilizzate su Questo Sito (Privacy by Design)
+          </h2>
+          <div class="p-5 bg-green-50 border border-green-200 rounded-2xl space-y-2 text-sm text-green-950">
+            <p class="font-bold flex items-center gap-2 text-base">
+              <span>🛡️</span> <span>Zero Cookie di Profilazione e Zero Tracker di Terze Parti</span>
+            </p>
+            <p class="leading-relaxed">
+              In ossequio al principio di <strong>minimizzazione dei dati</strong> (Art. 5, par. 1, lett. c del GDPR) e di <strong>Privacy by Design</strong>, il sito di Pizzeria Rainbow è stato strutturato come sito vetrina puramente informativo e self-hosted:
+            </p>
+            <ul class="list-disc pl-5 space-y-1 pt-1">
+              <li><strong>Nessun cookie di profilazione:</strong> non tracciamo le tue abitudini di consumo né creiamo profili pubblicitari.</li>
+              <li><strong>Nessun pixel o script di tracciamento commerciale:</strong> non sono presenti Google Analytics, Meta/Facebook Pixel, TikTok Pixel, Hotjar o strumenti similari.</li>
+              <li><strong>Nessun font caricato da server esterni:</strong> la famiglia tipografica (Montserrat) è ospitata e servita localmente dai nostri server, senza connessioni a Google Fonts.</li>
+              <li><strong>Nessun iframe o mappa esterna caricata automaticamente:</strong> la sezione posizione include un collegamento ipertestuale volontario verso Google Maps, azionabile solo su scelta dell'utente.</li>
+            </ul>
+          </div>
+          <p class="text-sm sm:text-base text-brand-charcoal/80 leading-relaxed">
+            Durante la navigazione possono operare unicamente <strong>cookie tecnici strettamente necessari</strong> generati dalla piattaforma di hosting o da eventuali meccanismi di sicurezza e caching di rete (es. bilanciamento del carico o prevenzione attacchi DDoS). Tali strumenti non memorizzano informazioni personali identificative e decadono al termine della sessione o secondo le policy tecniche del fornitore di infrastruttura.
+          </p>
+        </section>
+
+        <!-- Section 4 -->
+        <section class="space-y-3">
+          <h2 class="text-xl sm:text-2xl font-bold text-brand-green">
+            4. Perché Non è Presente un Banner dei Cookie
+          </h2>
+          <p class="text-sm sm:text-base text-brand-charcoal/80 leading-relaxed">
+            In conformità all'art. 122 del D.Lgs. 196/2003 (Codice Privacy) e alle <strong>Linee Guida del Garante per la Protezione dei Dati Personali del 10 giugno 2021</strong>, l'installazione di cookie tecnici non richiede il preventivo consenso dell'utente.
+          </p>
+          <p class="text-sm sm:text-base text-brand-charcoal/80 leading-relaxed">
+            Poiché il presente sito web <strong>non fa uso di alcun cookie di profilazione, marketing o analytics non anonimizzato</strong>, non sussiste l'obbligo giuridico di mostrare un banner invasivo di blocco preventivo o di raccolta del consenso, garantendo una fruizione immediata, pulita e rispettosa della privacy dell'utente.
+          </p>
+        </section>
+
+        <!-- Section 5 -->
+        <section class="space-y-3">
+          <h2 class="text-xl sm:text-2xl font-bold text-brand-green">
+            5. Come Gestire o Disabilitare i Cookie nel Tuo Browser
+          </h2>
+          <p class="text-sm sm:text-base text-brand-charcoal/80 leading-relaxed">
+            In qualsiasi momento puoi impostare le preferenze relative ai cookie direttamente attraverso i controlli del tuo browser di navigazione, scegliendo di rifiutare tutti i cookie o di cancellare quelli già memorizzati:
+          </p>
+          <ul class="list-disc pl-5 space-y-1.5 text-sm text-brand-charcoal/80">
+            <li><strong>Google Chrome:</strong> Menu Impostazioni &gt; Privacy e sicurezza &gt; Cookie e altri dati dei siti.</li>
+            <li><strong>Mozilla Firefox:</strong> Menu Opzioni &gt; Privacy e sicurezza &gt; Cookie e dati dei siti web.</li>
+            <li><strong>Apple Safari:</strong> Menu Preferenze &gt; Privacy &gt; Blocca tutti i cookie.</li>
+            <li><strong>Microsoft Edge:</strong> Menu Impostazioni &gt; Cookie e autorizzazioni sito &gt; Gestisci ed elimina cookie.</li>
+          </ul>
+        </section>
+
+        <!-- Section 6 -->
+        <section class="space-y-3">
+          <h2 class="text-xl sm:text-2xl font-bold text-brand-green">
+            6. Ulteriori Informazioni
+          </h2>
+          <p class="text-sm sm:text-base text-brand-charcoal/80 leading-relaxed">
+            Per maggiori informazioni sul trattamento generale dei dati personali effettuato da Pizzeria Rainbow (inclusa la gestione delle prenotazioni telefoniche e l'esercizio dei diritti previsti dal GDPR), ti invitiamo a consultare la nostra <a href={`${base}privacy-policy`} class="text-brand-terracotta font-bold underline hover:text-[#b04630]">Informativa sulla Privacy</a>.
+          </p>
+        </section>
+
+        <!-- Footer Action -->
+        <div class="pt-6 border-t border-brand-charcoal/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <a 
+              href={base} 
+              class="inline-flex items-center justify-center gap-2 bg-brand-green hover:bg-[#233a2e] text-white px-6 py-3 rounded-xl font-bold text-sm shadow transition-all focus:outline-none focus:ring-2 focus:ring-brand-terracotta"
+            >
+              ← Torna alla Home
+            </a>
+            <a 
+              href={`${base}privacy-policy`} 
+              class="inline-flex items-center justify-center gap-2 bg-white text-brand-green hover:bg-brand-green/10 border border-brand-green/20 px-5 py-3 rounded-xl font-bold text-sm transition-all focus:outline-none focus:ring-2 focus:ring-brand-terracotta"
+            >
+              Informativa Privacy →
+            </a>
+          </div>
+          <a
+            href={`tel:${SITE_CONFIG.displayPhone.replace(/\s+/g, '')}`}
+            class="text-sm font-bold text-brand-terracotta hover:underline"
+          >
+            Hai domande? Chiama lo {SITE_CONFIG.displayPhone}
+          </a>
+        </div>
+
+      </article>
+
+    </div>
+  </div>
+</Layout>

@@ -25,19 +25,24 @@ const base = import.meta.env.BASE_URL;
           </div>
           <div>
             <span class="text-2xl font-bold text-white tracking-tight">Pizzeria <span class="font-extrabold uppercase tracking-wide">RAINBOW</span></span>
-            <p class="text-[11px] text-brand-yellow font-semibold uppercase tracking-wider">Civitavecchia • Dal 2003</p>
+            <p class="text-[11px] text-brand-yellow font-semibold uppercase tracking-wider">Civitavecchia • Pizzeria & Ristorante</p>
           </div>
         </div>
 
         <p class="text-xs sm:text-sm font-normal text-brand-ivory/80 leading-relaxed">
-          Da oltre vent'anni la vera pizza artigianale, primi espressi della tradizione e carne alla brace nel cuore di Civitavecchia.
+          La vera pizza artigianale, primi espressi della tradizione e carne alla brace nel cuore di Civitavecchia.
         </p>
 
-        <!-- Dati Aziendali / Fiscali -->
-        <div class="pt-2 text-xs font-normal text-brand-ivory/70 space-y-1">
+        <!-- Dati Aziendali & Fiscali predisposti -->
+        <div class="pt-2 text-xs font-normal text-brand-ivory/80 space-y-1">
           <p><strong class="text-white">Ragione Sociale:</strong> Example SRL</p>
-          <p><strong class="text-white">P.IVA / C.F.:</strong> 00000000000</p>
           <p><strong class="text-white">Sede Legale:</strong> Via Luigi Sabatini, 2 - 00053 Civitavecchia (RM)</p>
+          <p><strong class="text-white">Partita IVA:</strong> 00000000000</p>
+          <p><strong class="text-white">Codice Fiscale:</strong> 00000000000</p>
+          <p class="text-brand-ivory/60"><strong class="text-brand-ivory/80">REA / Reg. Imprese:</strong> [In attesa di inserimento]</p>
+          <p class="text-brand-ivory/60"><strong class="text-brand-ivory/80">PEC:</strong> [In attesa di inserimento]</p>
+          <p class="text-brand-ivory/60"><strong class="text-brand-ivory/80">E-mail Aziendale:</strong> [In attesa di inserimento]</p>
+          <p><strong class="text-white">Telefono:</strong> <a href="tel:0766370162" class="text-brand-yellow hover:underline">0766 370162</a></p>
         </div>
       </div>
 
@@ -171,7 +176,7 @@ const base = import.meta.env.BASE_URL;
           </li>
           <li>
             <a href={`${base}#chi-siamo`} class="hover:text-brand-yellow transition-colors flex items-center gap-1.5">
-              <span>›</span> <span>Chi Siamo & Storia</span>
+              <span>›</span> <span>Chi Siamo</span>
             </a>
           </li>
           <li>
@@ -194,7 +199,23 @@ const base = import.meta.env.BASE_URL;
               href={`${base}privacy-policy`} 
               class="text-brand-yellow hover:underline transition-colors font-medium flex items-center gap-1.5"
             >
-              <span>🔒</span> <span>Privacy & Cookie Policy</span>
+              <span>🔒</span> <span>Informativa Privacy</span>
+            </a>
+          </li>
+          <li>
+            <a 
+              href={`${base}cookie-policy`} 
+              class="text-brand-yellow hover:underline transition-colors font-medium flex items-center gap-1.5"
+            >
+              <span>🍪</span> <span>Cookie Policy</span>
+            </a>
+          </li>
+          <li>
+            <a 
+              href={`${base}#allergeni`} 
+              class="text-brand-yellow hover:underline transition-colors font-medium flex items-center gap-1.5"
+            >
+              <span>📋</span> <span>Informativa Allergeni</span>
             </a>
           </li>
         </ul>
@@ -203,12 +224,16 @@ const base = import.meta.env.BASE_URL;
     </div>
 
     <!-- Bottom Bar -->
-    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-brand-ivory/60 gap-4">
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-brand-ivory/70 gap-4">
       <p>
         © {currentYear} Pizzeria Rainbow • Example SRL - P.IVA 00000000000 - Civitavecchia (RM). Tutti i diritti riservati.
       </p>
-      <div class="flex items-center gap-4">
-        <a href={`${base}privacy-policy`} class="hover:text-brand-ivory underline transition-colors">Privacy & Cookie Policy</a>
+      <div class="flex flex-wrap items-center justify-center gap-3 text-brand-ivory/80">
+        <a href={`${base}privacy-policy`} class="hover:text-white underline transition-colors">Privacy Policy</a>
+        <span>•</span>
+        <a href={`${base}cookie-policy`} class="hover:text-white underline transition-colors">Cookie Policy</a>
+        <span>•</span>
+        <a href={`${base}#allergeni`} class="hover:text-white underline transition-colors">Allergeni</a>
         <span>•</span>
         <span>Sito Informativo No-Ecommerce</span>
       </div>

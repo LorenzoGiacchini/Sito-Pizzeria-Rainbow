@@ -1,13 +1,14 @@
 ---
 // privacy-policy.astro
 import Layout from '../layouts/Layout.astro';
+import { SITE_CONFIG } from '../utils/siteConfig';
 
 const base = import.meta.env.BASE_URL;
 ---
 
 <Layout
-  title="Informativa Privacy e Cookie Policy | Pizzeria Rainbow Civitavecchia"
-  description="Informativa sulla privacy e cookie policy di Pizzeria Rainbow. Sito esclusivamente informativo senza cookie di profilazione, senza analytics e senza raccolta dati online."
+  title="Informativa sulla Privacy | Pizzeria Rainbow Civitavecchia"
+  description="Informativa sul trattamento dei dati personali ai sensi del Regolamento UE 2016/679 (GDPR) di Pizzeria Rainbow. Trasparenza, liceità e tutela dei tuoi dati."
 >
   <div class="py-12 sm:py-20 bg-brand-ivory">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -16,7 +17,7 @@ const base = import.meta.env.BASE_URL;
       <div class="mb-8">
         <a 
           href={base} 
-          class="inline-flex items-center gap-2 text-brand-terracotta hover:text-[#b04630] font-bold text-sm transition-colors group"
+          class="inline-flex items-center gap-2 text-brand-terracotta hover:text-[#b04630] font-bold text-sm transition-colors group focus:outline-none focus:ring-2 focus:ring-brand-terracotta rounded-lg px-2 py-1"
         >
           <span class="group-hover:-translate-x-1 transition-transform">←</span>
           <span>Torna alla Home</span>
@@ -28,15 +29,24 @@ const base = import.meta.env.BASE_URL;
         
         <header class="border-b border-brand-charcoal/10 pb-6 space-y-2">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-green/10 text-brand-green text-xs font-semibold uppercase tracking-wider">
-            Conformità GDPR (Reg. UE 2016/679)
+            Informativa sul Trattamento dei Dati Personali (Artt. 13-14 Reg. UE 2016/679 - GDPR)
           </div>
           <h1 class="text-3xl sm:text-4xl font-extrabold text-brand-green">
-            Informativa sulla Privacy e Cookie Policy
+            Informativa sulla Privacy
           </h1>
           <p class="text-xs text-brand-charcoal/60">
             Ultimo aggiornamento: Ottobre 2026
           </p>
         </header>
+
+        <!-- Intro -->
+        <div class="text-sm sm:text-base text-brand-charcoal/85 leading-relaxed space-y-3">
+          <p>
+            Benvenuto sul sito web ufficiale di <strong>Pizzeria Rainbow</strong>. 
+            La riservatezza e la sicurezza dei tuoi dati personali sono una priorità fondamentale. 
+            La presente informativa descrive in modo trasparente, ai sensi degli artt. 13 e 14 del Regolamento (UE) 2016/679 (di seguito "GDPR") e della normativa italiana vigente, quali dati vengono raccolti, le relative finalità, le basi giuridiche applicate e i diritti che ti sono riconosciuti.
+          </p>
+        </div>
 
         <!-- Section 1 -->
         <section class="space-y-3">
@@ -44,99 +54,190 @@ const base = import.meta.env.BASE_URL;
             1. Titolare del Trattamento dei Dati
           </h2>
           <p class="text-sm sm:text-base text-brand-charcoal/80 leading-relaxed">
-            Il Titolare del trattamento dei dati è:
+            Il Titolare del trattamento dei dati personali è:
           </p>
-          <div class="bg-brand-ivory p-4 rounded-xl border border-brand-green/10 text-sm space-y-1">
-            <p><strong>Ragione Sociale:</strong> Example SRL (Pizzeria Rainbow)</p>
-            <p><strong>Sede Legale:</strong> Via Luigi Sabatini, 2, 00053 Civitavecchia (RM)</p>
-            <p><strong>P.IVA / C.F.:</strong> 00000000000</p>
-            <p><strong>Recapito Telefonico:</strong> <a href="tel:0766370162" class="text-brand-terracotta font-bold underline">0766 370162</a></p>
+          <div class="bg-brand-ivory p-5 rounded-2xl border border-brand-green/10 text-sm space-y-1.5">
+            <p><strong>Ragione Sociale:</strong> {SITE_CONFIG.legalName} (Pizzeria Rainbow)</p>
+            <p><strong>Sede Legale:</strong> {SITE_CONFIG.address.streetAddress}, {SITE_CONFIG.address.postalCode} {SITE_CONFIG.address.addressLocality} ({SITE_CONFIG.address.addressRegion})</p>
+            <p><strong>Partita IVA / Codice Fiscale:</strong> {SITE_CONFIG.vatNumber}</p>
+            <p><strong>Recapito Telefonico:</strong> <a href={`tel:${SITE_CONFIG.displayPhone.replace(/\s+/g, '')}`} class="text-brand-terracotta font-bold underline">{SITE_CONFIG.displayPhone}</a></p>
+            <p class="text-xs text-brand-charcoal/70 pt-1">
+              Per qualsiasi chiarimento o per l'esercizio dei diritti previsti dal GDPR, è possibile contattare il Titolare presso la sede indicata o tramite il recapito telefonico sopra riportato.
+            </p>
           </div>
         </section>
 
         <!-- Section 2 -->
         <section class="space-y-3">
           <h2 class="text-xl sm:text-2xl font-bold text-brand-green">
-            2. Natura Esclusivamente Informativa del Sito Web
+            2. Tipologie di Dati Trattati
           </h2>
-          <p class="text-sm sm:text-base text-brand-charcoal/80 leading-relaxed">
-            Il presente sito web ha scopo <strong>puramente divulgativo, informativo e promozionale</strong> per la presentazione dei servizi, dei locali e del menù del ristorante-pizzeria.
-          </p>
-          <p class="text-sm sm:text-base text-brand-charcoal/80 leading-relaxed">
-            Sul sito:
-          </p>
-          <ul class="list-disc pl-5 space-y-2 text-sm text-brand-charcoal/80">
-            <li><strong>Nessun e-commerce o pagamento online:</strong> Non è presente alcun carrello né transazione monetaria online.</li>
-            <li><strong>Nessun form o modulo di contatto:</strong> Non vengono richiesti né memorizzati su server nomi, indirizzi email o recapiti telefonici tramite form online.</li>
-            <li><strong>Nessun salvataggio dati utenti online:</strong> Non esiste alcun database utenti collegato al sito web.</li>
-            <li><strong>Ordini e prenotazioni:</strong> Avvengono esclusivamente tramite contatto telefonico vocale spontaneo al numero fisso <strong>0766 370162</strong>.</li>
-          </ul>
+          <div class="space-y-3 text-sm sm:text-base text-brand-charcoal/80 leading-relaxed">
+            <h3 class="font-bold text-brand-green text-base">A) Dati di Navigazione Tecnica</h3>
+            <p>
+              I sistemi informatici e le procedure software preposte al funzionamento di questo sito web acquisiscono, nel corso del loro normale esercizio, alcuni dati la cui trasmissione è implicita nell'uso dei protocolli di comunicazione di Internet.
+            </p>
+            <p>
+              In questa categoria rientrano gli indirizzi IP o i nomi a dominio dei computer e dei terminali utilizzati dagli utenti, gli indirizzi in notazione URI/URL delle risorse richieste, l'orario della richiesta, il metodo utilizzato nel sottoporre la richiesta al server, la dimensione del file ottenuto in risposta, il codice numerico indicante lo stato della risposta data dal server (buon fine, errore, ecc.) ed altri parametri relativi al sistema operativo e all'ambiente informatico dell'utente.
+            </p>
+
+            <h3 class="font-bold text-brand-green text-base pt-2">B) Dati Forniti Spontaneamente via Telefono (Prenotazioni e Asporto)</h3>
+            <p>
+              Il presente sito web non integra moduli di contatto online (form), aree riservate, carrelli o pagamenti elettronici. Gli unici dati personali trattati nell'ambito dell'attività ristorativa sono quelli che l'utente comunica <strong>spontaneamente per via telefonica</strong> al numero fisso <strong>0766 370162</strong> per richiedere la prenotazione di un tavolo o concordare un ordine d'asporto.
+            </p>
+            <p>
+              Tali dati possono comprendere: nome, cognome (o iniziale), recapito telefonico, orario di arrivo o di ritiro desiderato, ed eventuali preferenze o segnalazioni relative ad allergie o intolleranze alimentari necessarie alla sicurezza della somministrazione.
+            </p>
+          </div>
         </section>
 
         <!-- Section 3 -->
         <section class="space-y-3">
           <h2 class="text-xl sm:text-2xl font-bold text-brand-green">
-            3. Cookie Policy (Nessun Cookie di Profilazione o Tracciamento)
+            3. Finalità del Trattamento e Basi Giuridiche (Art. 6 GDPR)
           </h2>
-          <p class="text-sm sm:text-base text-brand-charcoal/80 leading-relaxed">
-            Ai sensi del Regolamento Europeo 2016/679 (GDPR) e delle Linee Guida del Garante per la Protezione dei Dati Personali:
-          </p>
-          <div class="p-4 bg-green-50 border border-green-200 rounded-xl space-y-2 text-sm text-green-900">
-            <p class="font-bold flex items-center gap-2">
-              <span>🛡️</span> <span>Zero Cookie di Profilazione e Zero Analytics di Terze Parti</span>
-            </p>
-            <p>
-              Questo sito <strong>non fa uso di cookie di profilazione</strong>, non integra pixel di tracciamento pubblicitario (es. Facebook Pixel, Google Ads) e non utilizza strumenti di analisi statistica invasivi (es. Google Analytics).
+          <div class="space-y-3 text-sm sm:text-base text-brand-charcoal/80 leading-relaxed">
+            <ul class="list-disc pl-5 space-y-2">
+              <li>
+                <strong>Erogazione e sicurezza del servizio web:</strong> garantire la corretta visualizzazione delle pagine, monitorare il funzionamento tecnico dell'infrastruttura e prevenire attività fraudolente o attacchi informatici.<br />
+                <em>Base giuridica:</em> legittimo interesse del Titolare alla salvaguardia della sicurezza di rete e all'efficienza operativa del sito (Art. 6, par. 1, lett. f GDPR).
+              </li>
+              <li>
+                <strong>Gestione operativa di prenotazioni tavoli e ordini d'asporto:</strong> prendere in carico la chiamata, riservare i coperti richiesti, predisporre le pietanze all'orario concordato e ricontattare il cliente solo se strettamente indispensabile per la gestione della richiesta.<br />
+                <em>Base giuridica:</em> esecuzione di misure precontrattuali o contrattuali adottate su richiesta dell'interessato (Art. 6, par. 1, lett. b GDPR).
+              </li>
+              <li>
+                <strong>Tutela della salute per intolleranze o allergie alimentari comunicate:</strong> curare la corretta preparazione delle pietanze prive degli allergeni segnalati dall'interessato.<br />
+                <em>Base giuridica:</em> consenso esplicito manifestato dall'interessato con la comunicazione volontaria di tali esigenze per la tutela dell'incolumità fisica (Art. 9, par. 2, lett. a del GDPR).
+              </li>
+              <li>
+                <strong>Adempimento di obblighi di legge:</strong> rispetto delle normative fiscali, contabili e sanitarie previste dall'ordinamento italiano ed europeo.<br />
+                <em>Base giuridica:</em> adempimento di obblighi legali a cui è soggetto il Titolare (Art. 6, par. 1, lett. c GDPR).
+              </li>
+            </ul>
+            <p class="font-semibold text-brand-green">
+              I dati raccolti NON sono in alcun caso utilizzati per finalità di profilazione, marketing diretto, newsletter o cessione commerciale a terzi.
             </p>
           </div>
-          <p class="text-sm sm:text-base text-brand-charcoal/80 leading-relaxed">
-            Possono essere utilizzati esclusivamente <strong>cookie tecnici o di sessione</strong> strettamente necessari al funzionamento tecnico del protocollo web e all'erogazione della pagina (es. bilanciamento del carico), i quali non richiedono preventivo consenso ai sensi dell'art. 122 del D.lgs. 196/2003.
-          </p>
         </section>
 
         <!-- Section 4 -->
         <section class="space-y-3">
           <h2 class="text-xl sm:text-2xl font-bold text-brand-green">
-            4. Servizi di Terze Parti (Mappa Google Maps)
+            4. Modalità del Trattamento e Misure di Sicurezza
           </h2>
           <p class="text-sm sm:text-base text-brand-charcoal/80 leading-relaxed">
-            Nel sito è incorporata una mappa interattiva fornita da Google LLC tramite elemento <code>&lt;iframe&gt;</code> per facilitare agli utenti l'individuazione della sede in Via Luigi Sabatini, 2 a Civitavecchia. L'interazione con la mappa o il clic sul pulsante esterno "Apri in Google Maps" trasferisce l'utente sui servizi di Google, regolati dalle rispettive policy privacy consultabili su <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="text-brand-terracotta underline">policies.google.com/privacy</a>.
+            Il trattamento dei dati personali è improntato ai principi di liceità, correttezza, trasparenza e minimizzazione (Art. 5 GDPR). Viene effettuato con strumenti cartacei e informatici idonei a garantire adeguati livelli di sicurezza, riservatezza e integrità contro accessi non autorizzati, divulgazione, modifica o distruzione non autorizzata.
           </p>
         </section>
 
         <!-- Section 5 -->
         <section class="space-y-3">
           <h2 class="text-xl sm:text-2xl font-bold text-brand-green">
-            5. Dati Trattati durante le Chiamate Telefoniche
+            5. Destinatari dei Dati e Trasferimento verso Paesi Terzi
           </h2>
-          <p class="text-sm sm:text-base text-brand-charcoal/80 leading-relaxed">
-            Qualora l'utente decida di contattare telefonicamente la pizzeria al numero <strong>0766 370162</strong> per prenotare un tavolo o concordare un ordine d'asporto, gli unici dati raccolti (ad esempio: nominativo e orario di arrivo/ritiro) saranno utilizzati dal personale di cassa al solo fine di gestire la prenotazione del tavolo o la consegna delle pietanze, e non saranno ceduti a terzi né utilizzati per scopi di marketing.
-          </p>
+          <div class="space-y-3 text-sm sm:text-base text-brand-charcoal/80 leading-relaxed">
+            <p>
+              I dati personali trattati non saranno diffusi al pubblico. Possono essere resi accessibili esclusivamente a:
+            </p>
+            <ul class="list-disc pl-5 space-y-1.5">
+              <li>Personale dipendente e collaboratori della pizzeria, formalmente autorizzati e istruiti al trattamento.</li>
+              <li>Fornitori di servizi tecnici informatici e hosting (es. GitHub Inc. per la distribuzione dei file statici della piattaforma), designati responsabili del trattamento ai sensi dell'art. 28 del GDPR ove prescritto.</li>
+              <li>Autorità pubbliche, organi giudiziari o sanitari, nei soli casi imposti dalla legge.</li>
+            </ul>
+            <p>
+              Ove la piattaforma di hosting web (GitHub Pages / Microsoft) comporti l'elaborazione o il transito di dati tecnici su server dislocati al di fuori dello Spazio Economico Europeo (es. Stati Uniti), tale trasferimento avviene sulla base di idonee garanzie previste dal Capo V del GDPR, quali le Clausole Contrattuali Standard (SCC) adottate dalla Commissione Europea e il quadro normativo Data Privacy Framework UE-USA.
+            </p>
+          </div>
         </section>
 
         <!-- Section 6 -->
         <section class="space-y-3">
           <h2 class="text-xl sm:text-2xl font-bold text-brand-green">
-            6. Diritti dell'Interessato
+            6. Periodo di Conservazione dei Dati
+          </h2>
+          <div class="space-y-3 text-sm sm:text-base text-brand-charcoal/80 leading-relaxed">
+            <ul class="list-disc pl-5 space-y-2">
+              <li>
+                <strong>Dati tecnici di navigazione:</strong> conservati nei file di log del server per il periodo strettamente necessario alle finalità di sicurezza informatica e diagnosi della rete (indicativamente non superiore a 30-90 giorni).
+              </li>
+              <li>
+                <strong>Dati per prenotazioni tavoli e asporto:</strong> registrati su supporti giornalieri di sala/cassa e conservati per il tempo strettamente necessario all'esecuzione del servizio (di norma cancellati o distrutti entro le 24-48 ore successive alla consumazione del pasto o al ritiro), salvo che l'emissione di fattura nominale o specifici obblighi normativi impongano tempi di conservazione ulteriori previsti dalla legge (es. 10 anni per documenti fiscali).
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Section 7 -->
+        <section class="space-y-3">
+          <h2 class="text-xl sm:text-2xl font-bold text-brand-green">
+            7. Diritti dell'Interessato (Artt. 15-22 GDPR)
+          </h2>
+          <div class="space-y-3 text-sm sm:text-base text-brand-charcoal/80 leading-relaxed">
+            <p>
+              In qualità di interessato, ti sono riconosciuti tutti i diritti stabiliti dagli articoli da 15 a 22 del GDPR, tra cui:
+            </p>
+            <ul class="list-disc pl-5 space-y-1.5">
+              <li><strong>Diritto di accesso:</strong> ottenere la conferma che sia o meno in corso un trattamento di dati che ti riguardano e riceverne copia.</li>
+              <li><strong>Diritto di rettifica:</strong> ottenere l'aggiornamento o la correzione di dati inesatti o incompleti.</li>
+              <li><strong>Diritto di cancellazione ("diritto all'oblio"):</strong> richiedere la cancellazione dei dati personali ove sussistano i presupposti di legge.</li>
+              <li><strong>Diritto di limitazione del trattamento:</strong> richiedere il contrassegno dei dati trattati per limitarne l'elaborazione.</li>
+              <li><strong>Diritto di opposizione:</strong> opporti in qualsiasi momento al trattamento basato sul legittimo interesse del Titolare.</li>
+              <li><strong>Diritto alla portabilità dei dati:</strong> ricevere i dati forniti in formato strutturato, di uso comune e leggibile da dispositivo automatico.</li>
+            </ul>
+            <p class="pt-1">
+              Per esercitare tali diritti, puoi rivolgerti direttamente a {SITE_CONFIG.legalName} telefonando al numero <a href={`tel:${SITE_CONFIG.displayPhone.replace(/\s+/g, '')}`} class="text-brand-terracotta font-bold underline">{SITE_CONFIG.displayPhone}</a> o inviando una comunicazione scritta alla sede di {SITE_CONFIG.address.streetAddress}, {SITE_CONFIG.address.postalCode} {SITE_CONFIG.address.addressLocality} ({SITE_CONFIG.address.addressRegion}).
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 8 -->
+        <section class="space-y-3">
+          <h2 class="text-xl sm:text-2xl font-bold text-brand-green">
+            8. Diritto di Proporre Reclamo al Garante Privacy
           </h2>
           <p class="text-sm sm:text-base text-brand-charcoal/80 leading-relaxed">
-            Gli utenti hanno il diritto in qualunque momento di esercitare i diritti previsti dagli articoli 15-22 del Regolamento UE 2016/679 (tra cui accesso, rettifica, cancellazione o opposizione al trattamento) contattando la sede in Via Luigi Sabatini, 2, 00053 Civitavecchia (RM) o telefonando al numero 0766 370162.
+            Qualora tu ritenga che il trattamento dei tuoi dati personali avvenga in violazione di quanto disposto dal GDPR, hai il diritto di proporre reclamo all'Autorità di Controllo competente, secondo quanto previsto dall'art. 77 del GDPR:
+          </p>
+          <div class="bg-brand-ivory p-4 rounded-xl border border-brand-green/10 text-sm space-y-1 text-brand-charcoal/90">
+            <p><strong>Garante per la Protezione dei Dati Personali</strong></p>
+            <p>Piazza Venezia, 11 - 00187 Roma</p>
+            <p>Sito web: <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener noreferrer" class="text-brand-terracotta underline font-semibold">www.garanteprivacy.it</a></p>
+            <p>Centralino telefonico: (+39) 06.696771</p>
+          </div>
+        </section>
+
+        <!-- Section 9 -->
+        <section class="space-y-3">
+          <h2 class="text-xl sm:text-2xl font-bold text-brand-green">
+            9. Cookie Policy e Risorse Esterne
+          </h2>
+          <p class="text-sm sm:text-base text-brand-charcoal/80 leading-relaxed">
+            Per i dettagli completi relativi all'assenza di cookie di profilazione e alle tecnologie tecniche impiegate per la navigazione del sito, consulta la nostra <a href={`${base}cookie-policy`} class="text-brand-terracotta font-bold underline hover:text-[#b04630]">Cookie Policy</a> dedicata.
           </p>
         </section>
 
         <!-- Footer Action -->
         <div class="pt-6 border-t border-brand-charcoal/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <a 
-            href={base} 
-            class="inline-flex items-center justify-center gap-2 bg-brand-green hover:bg-[#233a2e] text-white px-6 py-3 rounded-xl font-bold text-sm shadow transition-all"
-          >
-            ← Torna alla Home
-          </a>
+          <div class="flex items-center gap-3">
+            <a 
+              href={base} 
+              class="inline-flex items-center justify-center gap-2 bg-brand-green hover:bg-[#233a2e] text-white px-6 py-3 rounded-xl font-bold text-sm shadow transition-all focus:outline-none focus:ring-2 focus:ring-brand-terracotta"
+            >
+              ← Torna alla Home
+            </a>
+            <a 
+              href={`${base}cookie-policy`} 
+              class="inline-flex items-center justify-center gap-2 bg-white text-brand-green hover:bg-brand-green/10 border border-brand-green/20 px-5 py-3 rounded-xl font-bold text-sm transition-all focus:outline-none focus:ring-2 focus:ring-brand-terracotta"
+            >
+              Cookie Policy →
+            </a>
+          </div>
           <a
-            href="tel:0766370162"
+            href={`tel:${SITE_CONFIG.displayPhone.replace(/\s+/g, '')}`}
             class="text-sm font-bold text-brand-terracotta hover:underline"
           >
-            Hai domande? Chiama lo 0766 370162
+            Hai domande? Chiama lo {SITE_CONFIG.displayPhone}
           </a>
         </div>
 
