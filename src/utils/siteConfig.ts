@@ -24,10 +24,10 @@ export const SITE_CONFIG = {
     addressCountry: 'IT',
   },
   
-  // Coordinate geografiche Civitavecchia centro
+  // Coordinate geografiche esatte (Via Luigi Sabatini, 2 - Civitavecchia)
   geo: {
-    latitude: 42.0924,
-    longitude: 11.7964,
+    latitude: 42.0877,
+    longitude: 11.8053,
   },
   
   // Dominio di produzione ufficiale previsto
