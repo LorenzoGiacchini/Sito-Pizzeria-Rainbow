@@ -41,7 +41,7 @@ const phone = SITE_CONFIG.displayPhone;
                 {address}
               </p>
               <p class="text-xs font-normal text-brand-charcoal/70 mt-0.5">
-                Zona residenziale centrale (Borgo Odescalchi), a breve distanza dal centro storico, dalla stazione FS e dal porto
+                Zona residenziale centrale (Borgo Odescalchi), a breve distanza dal porto e dalla stazione FS
               </p>
             </div>
           </div>
@@ -71,14 +71,14 @@ const phone = SITE_CONFIG.displayPhone;
             <div class="flex items-start gap-3">
               <span class="text-base">🚶</span>
               <p class="text-brand-charcoal/80">
-                <strong>A piedi:</strong> Facile passeggiata dal centro storico, dalla stazione ferroviaria o dai varchi portuali.
+                <strong>A piedi:</strong> Facile passeggiata dal porto o dalla stazione ferroviaria FS.
               </p>
             </div>
 
             <div class="flex items-start gap-3">
               <span class="text-base">🚗</span>
               <p class="text-brand-charcoal/80">
-                <strong>In auto & Parcheggio:</strong> Comodi stalli di sosta lungo Via Luigi Sabatini e nelle vie limitrofe del centro cittadino.
+                <strong>In auto & Parcheggio:</strong> Pochi minuti dal porto e dalla stazione FS, con comodi stalli di sosta lungo Via Luigi Sabatini e nelle vie limitrofe.
               </p>
             </div>
           </div>
@@ -125,94 +125,84 @@ const phone = SITE_CONFIG.displayPhone;
             Pizzeria Rainbow • Civitavecchia
           </h3>
           <p class="text-sm sm:text-base text-brand-charcoal/80 leading-relaxed">
-            Situata a Civitavecchia in Via Luigi Sabatini 2, la nostra pizzeria è facilmente raggiungibile sia a piedi dal centro che in auto o con i mezzi dai principali accessi stradali e portuali.
+            Situata a Civitavecchia in Via Luigi Sabatini 2, la nostra pizzeria è comodamente raggiungibile sia a piedi che in auto dal porto e dalla stazione ferroviaria.
           </p>
         </div>
 
-        <!-- Distance and Landmark Highlights (Percorsi Pedonali Verificati) -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 pt-2">
+        <!-- Indicazioni Stradali & Distanze (Porto e Stazione) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
           
-          <!-- 1. Varco Fortezza (Porto Storico) -->
-          <div class="p-4 rounded-2xl bg-brand-ivory border border-brand-green/10 flex flex-col justify-between">
+          <!-- 1. Porto di Civitavecchia -->
+          <div class="p-5 rounded-2xl bg-brand-ivory border border-brand-green/15 flex flex-col justify-between shadow-sm hover:border-brand-green/30 transition-colors">
             <div>
-              <div class="text-2xl mb-1">🚢</div>
-              <h4 class="font-bold text-brand-green text-sm">Porto — Varco Fortezza</h4>
-              <p class="text-xs text-brand-charcoal/70 mt-1">Accesso pedonale porto storico e Forte Michelangelo</p>
-            </div>
-            <div class="mt-3">
-              <p class="text-xs font-bold text-brand-terracotta">~1,4 km (circa 19 min a piedi)</p>
-              <p class="text-[10px] text-brand-charcoal/55 mt-0.5">Linea d'aria: ~1,1 km</p>
-            </div>
-          </div>
-
-          <!-- 2. Largo della Pace (Hub Navette Crociere) -->
-          <div class="p-4 rounded-2xl bg-brand-ivory border border-brand-green/10 flex flex-col justify-between">
-            <div>
-              <div class="text-2xl mb-1">🛳️</div>
-              <h4 class="font-bold text-brand-green text-sm">Hub Crociere — Largo della Pace</h4>
-              <p class="text-xs text-brand-charcoal/70 mt-1">Terminal navette crocieristi (Port Mobility)</p>
-            </div>
-            <div class="mt-3">
-              <p class="text-xs font-bold text-brand-terracotta">~2,0 km (27 min a piedi • 5 min auto)</p>
-              <p class="text-[10px] text-brand-charcoal/55 mt-0.5">Linea d'aria: ~1,8 km</p>
-            </div>
-          </div>
-
-          <!-- 3. Stazione Ferroviaria FS -->
-          <div class="p-4 rounded-2xl bg-brand-ivory border border-brand-green/10 flex flex-col justify-between">
-            <div>
-              <div class="text-2xl mb-1">🚆</div>
-              <h4 class="font-bold text-brand-green text-sm">Stazione Ferroviaria FS</h4>
-              <p class="text-xs text-brand-charcoal/70 mt-1">Piazzale Scipione Matteuzzi • Treni Roma/litorale</p>
-            </div>
-            <div class="mt-3">
-              <p class="text-xs font-bold text-brand-terracotta">~1,45 km (circa 19 min a piedi)</p>
-              <p class="text-[10px] text-brand-charcoal/55 mt-0.5">Linea d'aria: ~600 m (percorso attorno ai binari)</p>
-            </div>
-          </div>
-
-          <!-- 4. Corso Centocelle -->
-          <div class="p-4 rounded-2xl bg-brand-ivory border border-brand-green/10 flex flex-col justify-between">
-            <div>
-              <div class="text-2xl mb-1">🛍️</div>
-              <h4 class="font-bold text-brand-green text-sm">Corso Centocelle</h4>
-              <p class="text-xs text-brand-charcoal/70 mt-1">Isola pedonale centrale e via dello shopping</p>
-            </div>
-            <div class="mt-3">
-              <p class="text-xs font-bold text-brand-terracotta">~1,0 km (circa 13 min a piedi)</p>
-              <p class="text-[10px] text-brand-charcoal/55 mt-0.5">Tratto centrale: ~1,15 km (15 min)</p>
-            </div>
-          </div>
-
-          <!-- 5. Piazza Fratti (Ghetto) -->
-          <div class="p-4 rounded-2xl bg-brand-ivory border border-brand-green/10 flex flex-col justify-between">
-            <div>
-              <div class="text-2xl mb-1">🏛️</div>
-              <h4 class="font-bold text-brand-green text-sm">Piazza Fratti (Ghetto)</h4>
-              <p class="text-xs text-brand-charcoal/70 mt-1">Area pedonale storica e cuore del ritrovo serale</p>
-            </div>
-            <div class="mt-3">
-              <p class="text-xs font-bold text-brand-terracotta">~1,25 km (circa 16-17 min a piedi)</p>
-              <p class="text-[10px] text-brand-charcoal/55 mt-0.5">Linea d'aria: ~1,0 km</p>
-            </div>
-          </div>
-
-          <!-- 6. Percorsi Verificati (Badge Trasparenza) -->
-          <div class="p-4 rounded-2xl bg-brand-green/5 border border-brand-green/15 flex flex-col justify-between">
-            <div>
-              <div class="text-2xl mb-1">🧭</div>
-              <h4 class="font-bold text-brand-green text-sm">Percorsi Verificati</h4>
-              <p class="text-xs text-brand-charcoal/70 mt-1">Distanze a piedi reali calcolate da Via Luigi Sabatini 2</p>
-            </div>
-            <div class="mt-3">
-              <p class="text-xs font-bold text-brand-green flex items-center gap-1">
-                <span>✓</span> Rete pedonale OpenStreetMap / OSRM
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class="text-3xl">🚢</span>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-brand-green bg-brand-green/10 px-2.5 py-0.5 rounded-full">Porto & Crociere</span>
+              </div>
+              <h4 class="font-bold text-brand-green text-base">Porto di Civitavecchia</h4>
+              <p class="text-xs text-brand-charcoal/70 mt-1 leading-relaxed">
+                Accesso pedonale e veicolare per chi sbarca da navi da crociera o traghetti.
               </p>
-              <p class="text-[10px] text-brand-charcoal/55 mt-0.5">Distanze effettive su strada, non stime generiche</p>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-brand-charcoal/10 space-y-2.5 text-xs">
+              <div class="bg-white/90 p-2.5 rounded-xl border border-brand-green/10">
+                <div class="flex items-baseline justify-between font-semibold text-brand-green">
+                  <span>Varco Fortezza (Porto Storico)</span>
+                  <span class="text-brand-terracotta font-bold">~1,4 km</span>
+                </div>
+                <p class="text-[11px] text-brand-charcoal/70 mt-0.5">Circa 19 min a piedi • 4 min in auto</p>
+              </div>
+
+              <div class="bg-white/90 p-2.5 rounded-xl border border-brand-green/10">
+                <div class="flex items-baseline justify-between font-semibold text-brand-green">
+                  <span>Hub Crociere (Largo della Pace)</span>
+                  <span class="text-brand-terracotta font-bold">~2,0 km</span>
+                </div>
+                <p class="text-[11px] text-brand-charcoal/70 mt-0.5">Circa 5 min in auto o navetta • 27 min a piedi</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Stazione Ferroviaria FS -->
+          <div class="p-5 rounded-2xl bg-brand-ivory border border-brand-green/15 flex flex-col justify-between shadow-sm hover:border-brand-green/30 transition-colors">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class="text-3xl">🚆</span>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-brand-terracotta bg-brand-terracotta/10 px-2.5 py-0.5 rounded-full">Treni FS</span>
+              </div>
+              <h4 class="font-bold text-brand-green text-base">Stazione Ferroviaria FS</h4>
+              <p class="text-xs text-brand-charcoal/70 mt-1 leading-relaxed">
+                Piazzale Scipione Matteuzzi. Treni veloci e regionali da/per Roma e il litorale.
+              </p>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-brand-charcoal/10 space-y-2.5 text-xs">
+              <div class="bg-white/90 p-2.5 rounded-xl border border-brand-green/10">
+                <div class="flex items-baseline justify-between font-semibold text-brand-green">
+                  <span>Percorso a Piedi</span>
+                  <span class="text-brand-terracotta font-bold">~1,45 km</span>
+                </div>
+                <p class="text-[11px] text-brand-charcoal/70 mt-0.5">Circa 19 min a piedi attraverso il centro</p>
+              </div>
+
+              <div class="bg-white/90 p-2.5 rounded-xl border border-brand-green/10">
+                <div class="flex items-baseline justify-between font-semibold text-brand-green">
+                  <span>In Auto o Taxi</span>
+                  <span class="text-brand-terracotta font-bold">~4 min</span>
+                </div>
+                <p class="text-[11px] text-brand-charcoal/70 mt-0.5">Comodo tragitto con stalli di sosta in Via Sabatini</p>
+              </div>
             </div>
           </div>
 
         </div>
+
+        <!-- Nota distanze verificate -->
+        <p class="text-[11px] text-brand-charcoal/60 flex items-center gap-1.5 pt-1">
+          <span class="text-brand-green font-bold">✓</span>
+          <span>Distanze effettive verificate su rete stradale e pedonale fino a Via Luigi Sabatini 2.</span>
+        </p>
 
         <!-- Orari e Privacy Reminder Box -->
         <div class="space-y-3 pt-2">
